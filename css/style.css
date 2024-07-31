@@ -172,12 +172,13 @@ section p {
 }
 
 .project-card a {
-    color: #e6dada; /* Adjust color to match your design */
+    color: #040aa7; /* Adjust color to match your design */
     text-decoration: none;
 }
 
 .project-card a:hover {
     text-decoration: underline;
+    color: rgb(50, 77, 247);
 }
 
 .certification-card {
