@@ -170,6 +170,9 @@ section p {
         flex: 1 1 100%; /* 1 card per row on small screens */
     }
 }
+.project-card a {
+    color: silver; /* Adjust color to match your design */
+}
 
 .project-card a:hover {
     text-decoration: underline;
