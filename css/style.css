@@ -171,6 +171,15 @@ section p {
     }
 }
 
+.project-card a {
+    color: #000; /* Adjust color to match your design */
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
 .certification-card {
     background-color: #827e7e55;
     border-radius: 8px;
