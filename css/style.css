@@ -171,11 +171,6 @@ section p {
     }
 }
 
-.project-card a {
-    color: #4deeea; /* Adjust color to match your design */
-    /* text-decoration: none; */
-}
-
 .project-card a:hover {
     text-decoration: underline;
     color: #4deeea;
