@@ -173,7 +173,7 @@ section p {
 
 .project-card a {
     color: #040aa7; /* Adjust color to match your design */
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .project-card a:hover {
