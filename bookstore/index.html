@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
 	<title>Online Book Store</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<!-- Header section -->
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Books</a></li>
-				<li><a href="#">Authors</a></li>
-				<li><a href="#">Cart</a></li>
-			</ul>
-		</nav>
+	<header class="header-bar">
+		<div>
+			<button>Books</button>
+			<button>Authors</button>
+			<button>Categories</button>
+		</div>
+		<div class="search-bar">
+			<input type="search" placeholder="Search...">
+		</div>
+		<div>
+			<i class="fa fa-shopping-cart"></i>
+			<button>Sign In</button>
+		</div>
 	</header>
 	
 	<!-- Basic content -->
