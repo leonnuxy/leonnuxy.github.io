@@ -2,43 +2,10 @@
 <html lang="en">
 <head>
 	<title>Online Book Store</title>
-	<style>
-		.header-bar {
-			background-color: #f0f0f0;
-			padding: 10px;
-			display: flex;
-			align-items: center;
-		}
-		.header-bar > * {
-			margin-right: 20px;
-		}
-		.search-bar {
-			flex-grow: 1;
-			text-align: center;
-		}
-		.search-bar input {
-			width: 50%;
-			padding: 10px;
-			border-radius: 5px;
-			border: 1px solid #ccc;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<header class="header-bar">
-		<div>
-			<button>Books</button>
-			<button>Authors</button>
-			<button>Categories</button>
-		</div>
-		<div class="search-bar">
-			<input type="search" placeholder="Search...">
-		</div>
-		<div>
-			<i class="fa fa-shopping-cart"></i>
-			<button>Sign In</button>
-		</div>
-	</header>
+	{% include 'bin/header.html' %}
 	
 	<!-- Basic content -->
 	<h1>Online Book Store</h1>
