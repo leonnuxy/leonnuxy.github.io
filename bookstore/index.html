@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Online Book Store</title>
-	<link rel="stylesheet" type="text/css" href="/Users/noel/Library/CloudStorage/OneDrive-Personal/Projects/Git/leonnuxy.github.io/bookstore/static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-	{% include '/Users/noel/Library/CloudStorage/OneDrive-Personal/Projects/Git/leonnuxy.github.io/bookstore/bin/header.html' %}
-	
+	<div class="header-top bg-danger">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<a href="{% url 'store:index' %}">
+						<h3>Online Book Store</h3>
+					</a>
+				</div>
+				<div class="col-sm-5">
+					<form action="{% url 'search:search' %}" method="GET">
+						<input type="text" placeholder="Search Book" name="q">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+				<div class="col-sm-4">
+					<ul class="navbar-nav pull-right">
+						<li>
+							<a href="{% url 'cart:cart_details' %}">Cart ({{ cart|length }})</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Basic content -->
 	<h1>Online Book Store</h1>
 </body>
+
 </html>
