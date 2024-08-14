@@ -1,22 +1,35 @@
-.header-bar {
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	background-color: #f0f0f0;
 	padding: 10px;
-	display: flex;
-	align-items: center;
 }
 
-.header-bar > * {
-	margin-right: 20px;
+.nav-links {
+	display: flex;
+}
+
+.nav-links button {
+	margin-right: 10px;
 }
 
 .search-bar {
 	flex-grow: 1;
-	text-align: center;
+	margin: 0 20px;
 }
 
 .search-bar input {
-	width: 50%;
+	width: 100%;
 	padding: 10px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
+}
+
+.nav-actions {
+	display: flex;
+}
+
+.nav-actions i, .nav-actions button {
+	margin-right: 10px;
 }
