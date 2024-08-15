@@ -2,10 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background-color: #f8f8f8;
 }
 
@@ -17,18 +13,15 @@ body {
     justify-content: space-between;
     background-color: #d9534f;
     padding: 10px 20px;
-    padding-bottom: 20px;
     color: #f1c40f;
     width: 100%;
-    max-width: 1200px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 10vh;
+    z-index: 1000; /* Ensures the header is above other content */
 }
 
 .logo h1 {
     margin: 0;
     font-size: 1.5em;
-    line-height: 1.2;
     color: #f1c40f;
 }
 
@@ -98,47 +91,6 @@ body {
     color: #fff;
 }
 
-.main-menu {
-    background-color: #f8f8f8;
-    padding: 10px 0;
-}
-
-.navbar-default {
-    background-color: transparent;
-    border: none;
-}
-
-.menu-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-item {
-    margin-right: 20px;
-}
-
-.nav-item:last-child {
-    margin-right: 0;
-}
-
-.navbar-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.navbar-nav a:hover {
-    color: #5bc0de;
-}
-
 /* Media Queries */
 
 @media (max-width: 768px) {
@@ -151,6 +103,10 @@ body {
     }
     .search-bar input {
         width: 200px;
+    }
+    .tabs {
+        margin-left: 0;
+        justify-content: center;
     }
 }
 
