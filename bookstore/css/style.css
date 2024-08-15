@@ -5,18 +5,27 @@ body {
     background-color: #f8f8f8;
 }
 
+/* Fix for the header positioning and responsiveness */
 .header-group {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     position: fixed;
     top: 0;
-    justify-content: space-between;
-    background-color: #d9534f;
-    padding: 10px 20px;
-    color: #f1c40f;
+    left: 0;
     width: 100%;
+    background-color: #d9534f;
+    color: #f1c40f;
+    z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensures the header is above other content */
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo h1 {
@@ -65,36 +74,41 @@ body {
     cursor: pointer;
 }
 
-.tabs {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
+/* Styling for the main menu below the header */
+.main-menu {
+    background-color: #d9534f;
+    padding: 10px 0;
+    margin-top: 60px; /* Add margin to avoid overlap with header-main */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.tabs ul {
+.menu-group {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-level-1 {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    gap: 20px;
 }
 
-.tabs li {
-    margin-right: 20px;
-}
-
-.tabs a {
+.nav-item a {
     color: #f1c40f;
     text-decoration: none;
+    font-size: 16px;
 }
 
-.tabs a:hover {
+.nav-item a:hover {
     color: #fff;
 }
 
 /* Media Queries */
 
 @media (max-width: 768px) {
-    .header-group {
+    .header-main {
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -104,14 +118,10 @@ body {
     .search-bar input {
         width: 200px;
     }
-    .tabs {
-        margin-left: 0;
-        justify-content: center;
-    }
 }
 
 @media (max-width: 480px) {
-    .header-group {
+    .header-main {
         flex-direction: column;
         align-items: center;
     }
