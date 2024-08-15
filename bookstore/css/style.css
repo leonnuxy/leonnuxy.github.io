@@ -97,7 +97,7 @@ body {
 
 .auth-btn:active,
 .auth-btn:focus {
-    background-color: #1c2833; /* Change to a darker shade when clicked or focused */
+    background-color: #1507e4; /* Change to a darker shade when clicked or focused */
 }
 
 /* Styling for the main menu below the header */
