@@ -12,15 +12,44 @@ body {
 .header {
     display: flex;
     align-items: center;
-	position: fixed;
-	top: 0;
+    position: fixed;
+    top: 0;
     justify-content: space-between;
-    background-color: #d9534f; /* Red background color */
-    padding: 10px 20px; /* Add horizontal padding */
-    color: #f1c40f; /* Yellow text color */
-    width: 100%; /* Full width */
-    max-width: 1200px; /* Maximum width for the header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    background-color: #d9534f;
+    padding: 10px 20px;
+    padding-bottom: 20px; /* Added this line */
+    color: #f1c40f;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 10vh;
+}
+
+/* Add media queries for different screen sizes */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo h1 {
+        font-size: 1.2em;
+    }
+    .search-bar input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo h1 {
+        font-size: 1em;
+    }
+    .search-bar input {
+        width: 150px;
+    }
 }
 
 .logo h1 {
