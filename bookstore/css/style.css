@@ -2,6 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center; /* Center the header horizontally */
+    align-items: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    background-color: #f8f8f8; /* Optional: Add a light background color */
 }
 
 .header {
@@ -9,8 +14,11 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #d9534f; /* Red background color */
-    padding: 10px;
+    padding: 10px 20px; /* Add horizontal padding */
     color: #f1c40f; /* Yellow text color */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Maximum width for the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
 
 .logo h1 {
@@ -22,6 +30,9 @@ body {
 .search-bar {
     display: flex;
     align-items: center;
+    flex-grow: 1;
+    justify-content: center; /* Center the search bar */
+    margin: 0 20px; /* Add some spacing */
 }
 
 .search-bar input {
@@ -29,6 +40,7 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
+    width: 300px; /* Fixed width for the input */
 }
 
 .search-btn {
