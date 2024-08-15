@@ -1,19 +1,37 @@
+Let's combine the styles from style.css into the index.html file. Here's the updated code:
+HTML
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>Online Book Store</title>
-	<link rel="stylesheet" href="css/style.css" />
+	<style>
+		.header-top {
+			background-color: #f0f0f0;
+			padding: 10px;
+			display: flex;
+			align-items: center;
+		}
+		.header-top > * {
+			margin-right: 20px;
+		}
+		.search-box {
+			flex-grow: 1;
+			text-align: center;
+		}
+		.search-box input {
+			width: 50%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+	</style>
 </head>
-
 <body>
 	<div class="header-top bg-danger">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3">
-					<a href="{% url 'store:index' %}">
-						<h3>Online Book Store</h3>
-					</a>
+					<a href="{% url 'store:index' %}"><h3>Online Book Store</h3></a>
 				</div>
 				<div class="col-sm-5">
 					<form action="{% url 'search:search' %}" method="GET">
@@ -34,5 +52,4 @@
 	<!-- Basic content -->
 	<h1>Online Book Store</h1>
 </body>
-
 </html>
