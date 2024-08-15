@@ -34,7 +34,15 @@
 					</div>
 				</div>
 				<div class="auth-cart">
-					<button class="auth-btn"><a href="sign_in.html">Sign In</a></button>
+					<div id="signin-slider" class="slider">
+						<div class="slider-content">
+							<button class="close-btn" onclick="closeSlider()">X</button>
+							<h2>Welcome</h2>
+							<button class="sign-btn signin-btn">Sign In</button>
+							<button class="sign-btn signup-btn">Sign Up</button>
+						</div>
+					</div>
+					<button class="auth-btn" onclick="openSlider()">Sign In</button>
 					<button class="cart-btn">Cart</button>
 				</div>
 			</div>
