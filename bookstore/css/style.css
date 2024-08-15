@@ -14,7 +14,7 @@ body {
     left: 0;
     width: 100%;
     background-color: #d9534f;
-    color: #f1c40f;
+    color: #fff;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -31,15 +31,22 @@ body {
 .logo h1 {
     margin: 0;
     font-size: 1.5em;
-    color: #f1c40f;
+    color: #fff;
+}
+
+/* Centering the search-bar and menu items */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
 }
 
 .search-bar {
     display: flex;
     align-items: center;
-    flex-grow: 1;
     justify-content: center;
-    margin: 0 20px;
 }
 
 .search-bar input {
@@ -78,7 +85,6 @@ body {
 .main-menu {
     background-color: #d9534f;
     padding: 10px 0;
-    margin-top: 60px; /* Add margin to avoid overlap with header-main */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -96,16 +102,21 @@ body {
 }
 
 .nav-item a {
-    color: #f1c40f;
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
 
 .nav-item a:hover {
-    color: #fff;
+    color: #5bc0de;
 }
 
-/* Media Queries */
+/* Add this to push content down to avoid overlap with the fixed header */
+body::before {
+    content: '';
+    display: block;
+    height: 100px; /* Adjust this value if necessary to match your header height */
+}
 
 @media (max-width: 768px) {
     .header-main {
