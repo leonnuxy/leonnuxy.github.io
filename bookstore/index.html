@@ -1,48 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Online Book Store</title>
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Book Store</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<div class="header-top">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="pull-left">
-						<a href="{% url 'store:index' %}">
-							<h3 style="font-family:Lucida Handwriting; color: yellow ">Online Book Store</h3>
-						</a>
-					</div>
-				</div>
-				<div class="col-sm-5">
-					<form action="{% url 'search:search' %}" method="GET">
-						<div class="search_box">
-							<input type="text" class="form-control" placeholder="Search Book" name="q" value="{{search}}">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</div>
-					</form>
-				</div>
-				<div class="col-sm-4">
-					<div class="pull-right">
-						<ul class="navbar-nav">
-							<li class="profile"><a href="{% url 'store:signin' %}">Sign In</a></li>
-							<li class="cart">
-								<a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
-									<span class="totalcart" id="gettotalcart"> {{ cart|length }} </span>
-									<i class="fa fa-angle-right"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Basic content -->
-	<h1>Online Book Store</h1>
+    <header class="header">
+        <div class="logo">
+            <h1>Online Book<br>Store</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Book">
+            <button class="search-btn"><i class="fa fa-search"></i> Q</button>
+        </div>
+        <div class="auth-cart">
+            <button class="auth-btn">Sign In</button>
+            <button class="cart-btn">Cart <i class="fa fa-shopping-cart"></i> (0)</button>
+        </div>
+    </header>
 </body>
-
 </html>

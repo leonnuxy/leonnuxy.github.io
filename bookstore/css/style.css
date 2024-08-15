@@ -1,35 +1,56 @@
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #f0f0f0;
-	padding: 10px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links {
-	display: flex;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9534f; /* Red background color */
+    padding: 10px;
+    color: #f1c40f; /* Yellow text color */
 }
 
-.nav-links button {
-	margin-right: 10px;
+.logo h1 {
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.2;
 }
 
 .search-bar {
-	flex-grow: 1;
-	margin: 0 20px;
+    display: flex;
+    align-items: center;
 }
 
 .search-bar input {
-	width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
 }
 
-.nav-actions {
-	display: flex;
+.search-btn {
+    background-color: #5bc0de; /* Teal button color */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-.nav-actions i, .nav-actions button {
-	margin-right: 10px;
+.auth-cart {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-btn, .cart-btn {
+    background-color: #34495e; /* Dark blue button color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
