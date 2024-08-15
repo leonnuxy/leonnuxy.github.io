@@ -1,9 +1,7 @@
-Let's combine the styles from style.css into the index.html file. Here's the updated code:
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Online Book Store</title>
+	<title><i class="fa fa-book"></i> Online Book Store</title>
 	<style>
 		.header-top {
 			background-color: #f0f0f0;
@@ -31,20 +29,28 @@ HTML
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3">
-					<a href="{% url 'store:index' %}"><h3>Online Book Store</h3></a>
+					<div class="pull-left">
+						<a href="{% url 'store:index' %}"><h3 style="font-family:Lucida Handwriting; color: yellow ">Online Book Store</h3></a>
+					</div>				
 				</div>
 				<div class="col-sm-5">
 					<form action="{% url 'search:search' %}" method="GET">
-						<input type="text" placeholder="Search Book" name="q">
+						<input type="text" class="form-control" placeholder="Search Book" name="q" value="{{search}}">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
 				<div class="col-sm-4">
-					<ul class="navbar-nav pull-right">
-						<li>
-							<a href="{% url 'cart:cart_details' %}">Cart ({{ cart|length }})</a>
-						</li>
-					</ul>
+					<div class="pull-right">
+						<ul class="navbar-nav">
+							<li class="profile"><a href="{% url 'store:signin' %}">Sign In</a></li>
+							<li class="cart">
+								<a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
+									<span class="totalcart" id="gettotalcart"> {{ cart|length }} </span> 
+									<i class="fa fa-angle-right"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
