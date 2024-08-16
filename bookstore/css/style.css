@@ -28,12 +28,6 @@ body {
     margin: 0 auto;
 }
 
-.logo h1 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #fff;
-}
-
 /* Centering the search-bar and menu items */
 .centered-content {
     display: flex;
@@ -79,25 +73,25 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center; /* Ensures the text is centered */
-    display: inline-block; /* Makes sure the button behaves like a block element while keeping it inline */
-    text-decoration: none; /* Removes the underline from the text if using an anchor */
-    font-size: 12px; /* Adjust the font size as needed */
-	transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
 }
 
 .auth-btn:hover, .cart-btn:hover {
-    background-color: #abaeb1; /* Slightly darker shade on hover for visual feedback */
+    background-color: #abaeb1;
 }
 
 .auth-btn:focus {
-    outline: none; /* Removes the default focus outline */
-    box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.5); /* Adds a custom focus outline for accessibility */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.5);
 }
 
 .auth-btn:active,
 .auth-btn:focus {
-    background-color: #1507e4; /* Change to a darker shade when clicked or focused */
+    background-color: #1507e4;
 }
 
 /* Slider Styles */
@@ -124,6 +118,11 @@ body {
     width: 400px;
     text-align: center;
     position: relative;
+}
+
+.slider-content h2 {
+    color: black;
+    margin-bottom: 20px;
 }
 
 .close-btn {
@@ -175,12 +174,6 @@ body {
     opacity: 0.9;
 }
 
-/* When the slider is active */
-.slider.active {
-    right: 0;
-}
-
-
 /* Styling for the main menu below the header */
 .main-menu {
     padding-left: 20px;
@@ -213,9 +206,10 @@ body {
 body::before {
     content: '';
     display: block;
-    height: 100px; /* Adjust this value if necessary to match your header height */
+    height: 100px;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .header-main {
         flex-wrap: wrap;
