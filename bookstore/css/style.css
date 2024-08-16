@@ -138,7 +138,7 @@ body {
 
 /* Input Boxes */
 .input-box {
-    width: fit-content;
+    width: -webkit-fill-available;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
