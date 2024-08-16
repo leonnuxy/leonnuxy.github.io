@@ -128,7 +128,7 @@ body {
 }
 
 /* Close Button as Back Button */
-.close-btn {
+.back-btn {
     position: absolute;
     top: 20px;
     left: 20px;

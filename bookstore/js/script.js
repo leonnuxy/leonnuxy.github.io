@@ -7,9 +7,9 @@ function closeSlider(sliderId) {
 }
 
 function openPopup(popupId) {
-    document.getElementById(popupId).style.display = 'block';
+    document.getElementById(popupId).classList.add('active');
 }
 
 function closePopup(popupId) {
-    document.getElementById(popupId).style.display = 'none';
+    document.getElementById(popupId).classList.remove('active');
 }
