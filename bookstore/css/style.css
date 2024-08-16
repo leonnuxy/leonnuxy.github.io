@@ -107,106 +107,49 @@ body {
 /* Cart Popup Container */
 /* -------------------- */
 /* Popup Container (applies to both sign-in and cart popups) */
-.popup-container {
-    display: none; /* Initially hide the popup */
+/* Slider Container */
+.slider-container {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f0f0f0; /* Grey background */
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #e0e0e0; /* Light grey background */
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* When the slider is active */
+.slider-container.active {
+    right: 0;
+}
+
+/* Slider Content */
+.slider-content {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Ensure it appears above other content */
-}
-
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Popup Content */
-.popup-content {
     text-align: center;
-}
-
-/* Input Labels */
-.input-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #000000;
-    font-size: 14px;
-    text-align: left;
-}
-
-/* Input Boxes */
-.input-box {
-    width: -webkit-fill-available;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Password Container */
-.password-container {
     position: relative;
 }
 
-/* Show Password Icon */
-.show-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-/* Forgot Password Link */
-.forgot-password {
-    color: #666;
-    text-decoration: none;
-}
-
-/* Sign In and Sign Up Buttons */
-.sign-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.signin-btn {
-    background-color: #4CAF50;
-    color: #fff;
-}
-
-.signup-btn {
-    background-color: #666;
-    color: #fff;
-}
-
-/* Cart Back Button */
+/* Back Button (Close Button) */
 .back-btn {
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-    border: 1px solid #ccc;
-    margin-top: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
 }
 
-/* Specific styles for Cart Popup */
-#cart-popup h2 {
-    color: #000; /* Black text */
-    margin-bottom: 20px;
+/* Spacing between the Back Button and the Text */
+.slider-content h2 {
+    margin-top: 50px; /* Adds space between the back button and the "Your Cart is Empty" text */
+    font-size: 22px;
+    color: #333;
 }
-
-
-
 
 /* ---------------------------------- */
 /* Update Sign In and Sign Up buttons */

@@ -45,34 +45,33 @@
 							<p class="centered-text">Sign in to your account</p>
 							<label for="email" class="input-label">Email address:</label>
 							<input type="email" id="email" class="input-box">
-
+							
 							<div class="password-container">
 								<label for="password" class="input-label">Password:</label>
 								<input type="password" id="password" class="input-box">
 								<span class="show-password"><i class="fa fa-eye"></i></span>
 							</div>
-
+							
 							<a href="#" class="forgot-password">Forgot your password?</a>
-
+							
 							<button class="sign-btn signin-btn">Sign In</button>
 							<button class="sign-btn signup-btn">Sign Up</button>
 						</div>
 					</div>
-
-					<!-- Cart Popup -->
-					<div id="cart-popup" class="popup-container">
-						<div class="popup-content">
-							<button class="close-btn" onclick="closePopup('cart-popup')">&times;</button>
+					
+					<!-- Cart Slider -->
+					<div id="cart-slider" class="slider-container">
+						<div class="slider-content">
+							<button class="back-btn" onclick="closeSlider('cart-slider')">&larr;</button>
 							<h2>Your Cart is Empty</h2>
-							<button class="sign-btn back-btn">Back to Book Store</button>
 						</div>
 					</div>
-
+				
 					<button class="auth-btn" onclick="openPopup('signin-popup')">Sign In</button>
-					<button class="cart-btn" onclick="openPopup('cart-popup')">Cart</button>
+					<button class="cart-btn" onclick="openSlider('cart-slider')">Cart</button>
 					<!-- Link to the external JavaScript file -->
 					<script src="js/script.js"></script>
-				</div>
+				</div>				
 			</div>
 		</div>
 	</header>
