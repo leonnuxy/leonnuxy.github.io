@@ -97,10 +97,94 @@ body {
     background-color: #1507e4;
 }
 
-/* Slider Styles */
+/* --------------- */
+/* Popup Container */
+/* --------------- */
 
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Popup Content */
+.popup-content {
+    text-align: center;
+}
+
+/* Input Labels */
+.input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Input Boxes */
+.input-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Password Container */
+.password-container {
+    position: relative;
+}
+
+/* Show Password Icon */
+.show-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    color: #666;
+    text-decoration: none;
+}
+
+/* Sign In and Sign Up Buttons */
+.sign-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signin-btn {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.signup-btn {
+    background-color: #666;
+    color: #fff;
+}
+
+/* ---------------------------------- */
 /* Update Sign In and Sign Up buttons */
+/* ---------------------------------- */
 .sign-btn {
     width: 100%;
     padding: 15px;
@@ -147,11 +231,11 @@ body {
 .nav-item a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .nav-item a:hover {
-    color: #5bc0de;
+    color: #0a0c0d;
 }
 
 /* Add this to push content down to avoid overlap with the fixed header */
