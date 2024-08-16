@@ -105,7 +105,8 @@ body {
 .slider-container {
     position: fixed;
     top: 0;
-    transform: translateX(-100%);
+    left: 0; /* Ensure slider starts off-screen to the left */
+    transform: translateX(-100%); /* Initially hide the slider */
     width: 300px;
     height: 100%;
     background-color: #e0e0e0; /* Light grey background */
@@ -116,7 +117,7 @@ body {
 
 /* When the slider is active */
 .slider-container.active {
-    transform: translateX(0);
+    transform: translateX(0); /* Slide in from the left */
 }
 
 /* Slider Content */
@@ -126,7 +127,7 @@ body {
     position: relative;
 }
 
-/* Close Button */
+/* Close Button as Back Button */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -136,11 +137,12 @@ body {
     border: none;
     cursor: pointer;
     color: black;
+    transform: rotate(180deg); /* Rotate to look like a back arrow */
 }
 
-/* Spacing between the Close Button and the Text */
+/* Spacing between the Back Button and the Text */
 .slider-content h2 {
-    margin-top: 50px; /* Adds space between the close button and the "Your Cart is Empty" text */
+    margin-top: 50px; /* Adds space between the back button and the "Your Cart is Empty" text */
     font-size: 22px;
     color: #333;
 }
@@ -177,7 +179,7 @@ body {
 
 /* Input Boxes */
 .input-box {
-    width: -webkit-fill-available;
+    width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -220,14 +222,6 @@ body {
 .signup-btn {
     background-color: #666;
     color: #fff;
-}
-
-/* Cart Back Button */
-.cart-back-btn {
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-    border: 1px solid #ccc;
-    margin-top: 20px;
 }
 
 /* Specific styles for Cart Popup */
