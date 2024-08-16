@@ -1,7 +1,7 @@
 function openPopup() {
-    document.getElementById("auth-btn").addEventListener("click", openPopup);
+    document.getElementById("signin-popup").style.display = "block";
 }
 
 function closePopup() {
-    document.getElementById("close-btn").addEventListener("click", closePopup);
+    document.getElementById("signin-popup").style.display = "none";
 }
