@@ -1,4 +1,3 @@
-
 function openSlider(sliderId) {
     document.getElementById(sliderId).classList.add('active');
 }
