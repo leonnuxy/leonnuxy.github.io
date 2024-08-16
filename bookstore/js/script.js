@@ -9,10 +9,10 @@ function closePopup() {
 }
 
 // Cart Slider 
-function openCartPopup() {
-    document.getElementById("cart-popup").style.display = "block";
+function openPopup(popupId) {
+    document.getElementById(popupId).style.display = "block";
 }
 
-function closeCartPopup() {
-    document.getElementById("cart-popup").style.display = "none";
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = "none";
 }
