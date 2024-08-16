@@ -1,7 +1,7 @@
 function openPopup() {
-    document.getElementById("signin-popup").classList.add("active");
+    document.getElementById("signin-btn").addEventListener("click", openPopup);
 }
 
 function closePopup() {
-    document.getElementById("signin-popup").classList.remove("active");
+    document.getElementById("signin-btn").addEventListener("click", closePopup);
 }
