@@ -95,7 +95,7 @@ body {
 }
 
 /* Slider Styles */
-.slider {
+.popup {
     display: none;
     position: fixed;
     top: 0;
@@ -107,11 +107,11 @@ body {
     align-items: center;
 }
 
-.slider.active {
+.popup.active {
     display: flex;
 }
 
-.slider-content {
+.popup-content {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -121,7 +121,7 @@ body {
 }
 
 /* Update the Welcome text style */
-.slider-content h2 {
+.popup-content h2 {
     color: black;
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -150,6 +150,7 @@ body {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
+	font-size: 150%;
 }
 
 /* Password container to include the eye icon */

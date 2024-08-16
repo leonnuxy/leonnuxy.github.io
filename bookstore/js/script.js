@@ -1,7 +1,7 @@
-function openSlider() {
-    document.getElementById("signin-slider").classList.add("active");
+function openPopup() {
+    document.getElementById("signin-popup").classList.add("active");
 }
 
-function closeSlider() {
-    document.getElementById("signin-slider").classList.remove("active");
+function closePopup() {
+    document.getElementById("signin-popup").classList.remove("active");
 }

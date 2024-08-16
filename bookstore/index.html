@@ -37,15 +37,12 @@
 					</div>
 				</div>
 				<div class="auth-cart">
-					<div id="signin-slider" class="slider">
-						<div class="slider-content">
-							<button class="close-btn">&times;</button>
+					<div id="signin-popup" class="popup-container">
+						<div class="popup-content">
+							<button class="close-btn" onclick="closePopup()">&times;</button>
 							<h2>Welcome</h2>
 							<p class="centered-text">Sign in to your account</p>
-							<label for="email" class="input-label">Email address</label>
 							<input type="email" id="email" class="input-box" placeholder="Email address">
-							
-							<label for="password" class="input-label">Password</label>
 							<div class="password-container">
 								<input type="password" id="password" class="input-box" placeholder="Password">
 								<span class="show-password"><i class="fa fa-eye"></i></span>
@@ -58,7 +55,7 @@
 						</div>
 						
 					</div>
-					<button class="auth-btn" onclick="openSlider()">Sign In</button>
+					<button class="auth-btn" onclick="openPopup()">Sign In</button>
 					<button class="cart-btn">Cart</button>
 					<!-- Link to the external JavaScript file -->
 					<script src="js/script.js"></script>
