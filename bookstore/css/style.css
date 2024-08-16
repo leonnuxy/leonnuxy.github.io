@@ -165,7 +165,7 @@ body::before {
         justify-content: center;
     }
     .logo h1 {
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .search-bar input {
         width: 200px;
@@ -178,7 +178,7 @@ body::before {
         align-items: center;
     }
     .logo h1 {
-        font-size: 1em;
+        font-size: 0.8em;
     }
     .search-bar input {
         width: 150px;
