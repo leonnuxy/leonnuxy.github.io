@@ -120,9 +120,11 @@ body {
     position: relative;
 }
 
+/* Update the Welcome text style */
 .slider-content h2 {
     color: black;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .close-btn {
@@ -135,24 +137,53 @@ body {
     cursor: pointer;
 }
 
+/* Update the centered text style */
 .centered-text {
-    font-size: 16px;
+    font-size: 1.2em;
+    color: #333;
     margin-bottom: 20px;
+}
+
+/* Label style for form fields */
+.input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
     color: #333;
 }
 
-.input-box {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+/* Password container to include the eye icon */
+.password-container {
+    position: relative;
 }
 
+.password-container .show-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Style for the "Forgot your password?" link */
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Update Sign In and Sign Up buttons */
 .sign-btn {
-    width: calc(100% - 20px);
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -160,7 +191,7 @@ body {
 }
 
 .signin-btn {
-    background-color: #5bc0de;
+    background-color: #0056b3;
     color: white;
 }
 
