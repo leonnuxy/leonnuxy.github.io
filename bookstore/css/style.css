@@ -163,7 +163,8 @@ body {
 
 /* Popup Content */
 .popup-content {
-    text-align: center;
+    text-align: left;
+	color: #000000;
 }
 
 /* Input Labels */
