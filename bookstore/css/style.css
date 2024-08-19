@@ -17,10 +17,6 @@ body {
     z-index: 1000; /* Ensures the header stays above other content */
 }
 
-body {
-    margin-top: 70px; /* Adjust the top margin of the body to avoid content hiding behind the header */
-}
-
 .header-main {
     display: flex;
     justify-content: space-between; /* Distribute space between the logo, search bar, and buttons */
