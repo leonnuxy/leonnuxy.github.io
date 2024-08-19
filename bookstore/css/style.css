@@ -166,11 +166,10 @@ body {
     display: block; /* Show the popup when active */
 }
 
-/* Popup Content
+/* Popup Content */
 .popup-content {
-    text-align: center;
 	color: #000000;
-} */
+}
 
 /* Input Labels */
 .input-label {
@@ -184,7 +183,7 @@ body {
 
 /* Input Boxes */
 .input-box {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
