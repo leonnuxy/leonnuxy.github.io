@@ -13,3 +13,4 @@ function openPopup(popupId) {
 function closePopup(popupId) {
     document.getElementById(popupId).classList.remove('active');
 }
+

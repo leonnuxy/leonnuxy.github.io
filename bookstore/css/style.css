@@ -149,7 +149,7 @@ body {
 
 /* Popup Container */
 .popup-container {
-    display: block; /* Initially hide the popup */
+    display: none; /* Initially hide the popup */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -161,9 +161,14 @@ body {
     z-index: 1000; /* Ensure it appears above other content */
 }
 
+/* Popup Container Active */
+.popup-container.active {
+    display: block; /* Show the popup when active class is added */
+}
+
 /* Popup Content */
 .popup-content {
-    text-align: left;
+    text-align: center;
 	color: #000000;
 }
 
