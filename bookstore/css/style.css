@@ -234,6 +234,7 @@ body {
 .forgot-password {
     color: #666;
     text-decoration: none;
+	padding-bottom: 10px;
 }
 
 /* Sign In and Sign Up Buttons */
