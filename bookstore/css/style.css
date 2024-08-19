@@ -147,6 +147,13 @@ body {
     color: #333;
 }
 
+/* Specific styles for Cart Popup */
+#cart-popup h2 {
+    color: #000; /* Black text */
+    margin-bottom: 20px;
+}
+
+
 /* Popup Container */
 .popup-container {
     display: none; /* Initially hide the popup */
@@ -171,6 +178,25 @@ body {
 	color: #000000;
 }
 
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 24px; /* Increase the size of the 'X' */
+    cursor: pointer; /* Change cursor to pointer */
+    color: #000000; /* Set the color of the 'X' */
+}
+
+/* Close Button Hover Effect */
+.close-btn:hover {
+    color: #000000; /* Optional: Change color on hover */
+}
+
+
 /* Input Labels */
 .input-label {
     display: block;
@@ -183,7 +209,7 @@ body {
 
 /* Input Boxes */
 .input-box {
-    width: 80%;
+    width: 94%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -226,12 +252,6 @@ body {
 .signup-btn {
     background-color: #666;
     color: #fff;
-}
-
-/* Specific styles for Cart Popup */
-#cart-popup h2 {
-    color: #000; /* Black text */
-    margin-bottom: 20px;
 }
 
 
