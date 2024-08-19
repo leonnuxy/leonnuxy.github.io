@@ -166,11 +166,11 @@ body {
     display: block; /* Show the popup when active class is added */
 }
 
-/* Popup Content */
+/* Popup Content
 .popup-content {
     text-align: center;
 	color: #000000;
-}
+} */
 
 /* Input Labels */
 .input-label {
