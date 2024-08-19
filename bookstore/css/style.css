@@ -161,9 +161,9 @@ body {
     z-index: 1000; /* Ensure it appears above other content */
 }
 
-/* Popup Container Active */
+/* Active Popup (when opened) */
 .popup-container.active {
-    display: block; /* Show the popup when active class is added */
+    display: block; /* Show the popup when active */
 }
 
 /* Popup Content
