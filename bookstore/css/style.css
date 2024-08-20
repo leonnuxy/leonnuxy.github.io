@@ -5,7 +5,6 @@ body {
     background-color: #f8f8f8;
 }
 
-/* Fix for the header positioning and responsiveness */
 .header-group {
     background-color: #333;
     color: white;
@@ -13,15 +12,27 @@ body {
     position: fixed; /* Fixes the header at the top */
     top: 0; /* Aligns it to the top of the page */
     left: 0;
+    right: 0; /* Ensures the header stretches across the entire width */
     width: 100%; /* Makes sure the header spans the entire width of the page */
+    box-sizing: border-box; /* Includes padding in the element's width */
     z-index: 1000; /* Ensures the header stays above other content */
+}
+
+body {
+    margin-top: 70px; /* Adjust the top margin of the body to avoid content hiding behind the header */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 .header-main {
     display: flex;
-    justify-content: space-between; /* Distribute space between the logo, search bar, and buttons */
-    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Sets a maximum width for the header content */
+    margin: 0 auto; /* Centers the header content */
+    width: 100%; /* Ensures the header content fits within the header */
+    box-sizing: border-box; /* Includes padding in the element's width */
 }
+
 
 .logo h1 {
     margin: 0;
