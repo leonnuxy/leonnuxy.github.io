@@ -19,7 +19,6 @@ body {
 }
 
 body {
-    /* margin-top: 70px; Adjust the top margin of the body to avoid content hiding behind the header */
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
@@ -345,47 +344,73 @@ body::before {
 /* Book Listing */
 /* ------------ */
 
-.book-listing {
-    margin: 20px 0;
-}
-
 .book-grid {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-.book-card {
+.product {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    position: relative;
+    padding: 20px;
     text-align: center;
-    flex: 1 1 calc(33.333% - 20px); /* 3 items per row */
 }
 
-.book-card img {
+.image-container-inner {
+    display: inline-block;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tile-image {
     max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    max-height: 100%;
+    object-fit: cover;
 }
 
-.book-card h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.tile-body {
+    padding: 20px;
+    text-align: left;
 }
 
-.book-card p {
+.pdp-link h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.tile-text-light {
+    display: block;
+    color: #666;
     margin: 5px 0;
 }
 
+.variant-format-label {
+    font-size: 14px;
+    color: #888;
+}
+
+.price .value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
 .add-to-cart-btn {
-    background-color: #f76c6c;
-    color: white;
-    padding: 10px 15px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
