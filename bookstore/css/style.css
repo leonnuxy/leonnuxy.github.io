@@ -19,7 +19,7 @@ body {
 }
 
 body {
-    margin-top: 70px; /* Adjust the top margin of the body to avoid content hiding behind the header */
+    /* margin-top: 70px; Adjust the top margin of the body to avoid content hiding behind the header */
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
