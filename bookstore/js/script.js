@@ -11,31 +11,48 @@ function closeSlider(sliderId) {
 }
 
 // Cart Actions:
+// document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
+//     button.addEventListener('click', function() {
+//         const productTile = this.closest('.product-tile');
+//         const bookTitle = productTile.querySelector('h3').textContent;
+//         const bookPrice = productTile.querySelector('.value').textContent;
+
+//         const cartSlider = document.getElementById('cart-slider');
+//         const cartContent = cartSlider.querySelector('.slider-content');
+
+//         let emptyCartText = cartContent.querySelector('h2');
+//         if (emptyCartText) {
+//             emptyCartText.remove();
+//         }
+
+//         const cartItem = document.createElement('div');
+//         cartItem.className = 'cart-item';
+//         cartItem.innerHTML = `
+//             <h4>${bookTitle}</h4>
+//             <div class="item-price">${bookPrice}</div>
+//             <button class="remove-item" onclick="removeCartItem(this)">Remove</button>
+//         `;
+
+//         cartContent.appendChild(cartItem);
+
+//         openSlider('cart-slider');
+//     });
+// });
+
 document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
     button.addEventListener('click', function() {
-        const productTile = this.closest('.product-tile');
-        const bookTitle = productTile.querySelector('h3').textContent;
-        const bookPrice = productTile.querySelector('.value').textContent;
+        // Your existing code to add the item to the cart goes here
 
-        const cartSlider = document.getElementById('cart-slider');
-        const cartContent = cartSlider.querySelector('.slider-content');
+        // Show the "Added to Cart" notification
+        const notification = document.getElementById('cart-notification');
+        notification.classList.add('show');
+        notification.classList.remove('hidden');
 
-        let emptyCartText = cartContent.querySelector('h2');
-        if (emptyCartText) {
-            emptyCartText.remove();
-        }
-
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-        cartItem.innerHTML = `
-            <h4>${bookTitle}</h4>
-            <div class="item-price">${bookPrice}</div>
-            <button class="remove-item" onclick="removeCartItem(this)">Remove</button>
-        `;
-
-        cartContent.appendChild(cartItem);
-
-        openSlider('cart-slider');
+        // Hide the notification after 3 seconds
+        setTimeout(function() {
+            notification.classList.remove('show');
+            notification.classList.add('hidden');
+        }, 3000);
     });
 });
 
