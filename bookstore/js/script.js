@@ -42,7 +42,7 @@ function closeSlider(sliderId) {
 document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
     button.addEventListener('click', function() {
         // Your existing code to add the item to the cart goes here
-
+        console.log('Add to Cart button was clicked.'); // Log the click event
         // Show the "Added to Cart" notification
         const notification = document.getElementById('cart-notification');
         notification.classList.add('show');
