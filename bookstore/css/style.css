@@ -351,11 +351,12 @@ body::before {
 }
 
 .product {
-    width: 300px;
+    width: 220px; /* Adjusted width to match the image example */
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .image-container {
@@ -377,43 +378,53 @@ body::before {
 }
 
 .tile-body {
-    padding: 20px;
+    padding: 15px;
     text-align: left;
+    position: relative;
 }
 
-.pdp-link h3 {
-    font-size: 18px;
-    margin: 10px 0;
+.tile-body h3 {
+    font-size: 16px;
+    margin: 5px 0;
 }
 
-.tile-text-light {
+.tile-body span {
     display: block;
     color: #666;
     margin: 5px 0;
 }
 
-.variant-format-label {
-    font-size: 14px;
+.price .old-price {
+    text-decoration: line-through;
     color: #888;
+    margin-right: 5px;
 }
 
 .price .value {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: #e60000;
+}
+
+.formats-available {
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0;
 }
 
 .add-to-cart-btn {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    background-color: #4CAF50;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 10px;
+    background-color: #ff4500;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #d95a5a;
+    background-color: #ff6347;
 }
