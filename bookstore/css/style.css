@@ -344,19 +344,21 @@ body::before {
 /* Book Listing */
 /* ------------ */
 
-.book-grid {
+.container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if there are many listings */
 }
 
 .product {
-    width: 220px; /* Adjusted width to match the image example */
+    width: 220px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* You can remove this if you don't want space between rows */
+    flex-shrink: 0; /* Prevents the product cards from shrinking */
 }
 
 .image-container {
@@ -392,6 +394,7 @@ body::before {
     display: block;
     color: #666;
     margin: 5px 0;
+	font-size: 12px;
 }
 
 .price .old-price {
