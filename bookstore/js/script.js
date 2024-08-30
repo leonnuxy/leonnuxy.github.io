@@ -6,7 +6,8 @@ function openSlider(sliderId) {
 }
 
 function closeSlider(sliderId) {
-    document.getElementById(sliderId).classList.remove('active');
+    const slider = document.getElementById(sliderId);
+    slider.classList.remove('active');
 }
 
 // Define removeCartItem outside of DOMContentLoaded

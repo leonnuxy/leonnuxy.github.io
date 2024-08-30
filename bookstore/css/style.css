@@ -224,14 +224,18 @@ body::before {
     width: 300px;
     height: 100%;
     background-color: #fff;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1001;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially not visible */
 }
 
 /* When the slider is active */
 .slider-container.active {
     transform: translateX(0);
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make visible when active */
 }
 
 /* Slider Content with Scrollable Property */

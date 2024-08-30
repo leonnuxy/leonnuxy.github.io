@@ -55,5 +55,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Author filtering
+    authorItems.forEach(function(authorItem) {
+        authorItem.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+
+            const filter = this.textContent.trim(); // Get the author text
+
+            // Loop through all products and show/hide them based on the selected filter
+            products.forEach(function(product) {
+                const author = product.getAttribute('author');
+
+                // if (author === filter || filter === 'All Authors') {
+                if (author === filter ) {
+                    product.style.display = 'block'; // Show products that match the filter
+                } else {
+                    product.style.display = 'none'; // Hide products that don't match
+                }
+            });
+        });
+    });
 });
 
