@@ -23,47 +23,32 @@
 				</div>
 				<div class="centered-content">
 					<div class="search-bar">
-						<input type="text" placeholder="Search Book">
-						<button class="search-btn">Search</button>
+						<input type="text" placeholder="Search Book/Author">
 					</div>
 					<div class="main-menu">
 						<nav class="navbar navbar-default">
 							<div class="menu-group">
 								<ul class="nav navbar-nav navbar-level-1">
-									<li class="nav-item dropdown" role="presentation"><a href="#"
-											title="Browse book categories">Categories</a></li>
-									<li class="nav-item dropdown" role="presentation"><a href="#"
-											title="Browse by Authors">Authors</a></li>
-									<li class="nav-item dropdown" role="presentation"><a href="#"
-											title="Browse Best Sellers">Best Sellers</a></li>
+									<li class="nav-item dropdown" role="presentation">
+										<a href="#" title="Browse book categories" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
+										<ul class="dropdown-menu">
+											<li><a href="#" title="Non-Fiction">Non-Fiction</a></li>
+											<li><a href="#" title="Fiction">Fiction</a></li>
+										</ul>
+									</li>
+									<li class="nav-item dropdown" role="presentation">
+										<a href="#" title="Browse by Authors" class="dropdown-toggle" data-toggle="dropdown">Authors</a>
+										<ul id="author-dropdown" class="dropdown-menu">
+											<!-- Author list items will be dynamically inserted here -->
+										</ul>
+									</li>
+									<li class="nav-item dropdown" role="presentation"><a href="#" title="Browse Best Sellers">Best Sellers</a></li>
 								</ul>
 							</div>
 						</nav>
 					</div>
 				</div>
 				<div class="auth-cart">
-					<!-- Sign In Popup -->
-					<!-- <div id="signin-popup" class="popup-container">
-						<div class="popup-content">
-							<button class="close-btn" onclick="closePopup('signin-popup')">&times;</button>
-							<h2>Welcome</h2>
-							<p class="centered-text">Sign in to your account</p>
-							<label for="email" class="input-label">Email address:</label>
-							<input type="email" id="email" class="input-box">
-							
-							<div class="password-container">
-								<label for="password" class="input-label">Password:</label>
-								<input type="password" id="password" class="input-box">
-								<span class="show-password"><i class="fa fa-eye"></i></span>
-							</div>
-							
-							<a href="#" class="forgot-password">Forgot your password?</a>
-							
-							<button class="sign-btn signin-btn">Sign In</button>
-							<button class="sign-btn signup-btn">Sign Up</button>
-						</div>
-					</div> -->
-					
 					<!-- Cart Slider -->
 					<div id="cart-slider" class="slider-container">
 						<div class="slider-content">
@@ -71,43 +56,26 @@
 							<h2>Your Cart is Empty</h2>
 						</div>
 					</div>
-				
-					<!-- <button class="auth-btn" onclick="openPopup('signin-popup')">Sign In</button> -->
 					<button class="cart-btn" onclick="openSlider('cart-slider')">Cart</button>
 					<!-- Link to the external JavaScript file -->
 					<script src="js/script.js"></script>
-				</div>
-							
+				</div>		
 			</div>
 		</div>
 	</header>
 	<section class="book-listing">
 		<div class="container">
-			<!-- Book Listings -->
-			<div class="product">
-				<div class="product-tile">
-					<div class="image-container">
-						<div class="image-container-inner">
-							<img class="tile-image" src="books/images/image.png" alt="Another Book Title" title="Another Book Title" loading="eager">
-						</div>
-					</div>
-					<div class="tile-body">
-						<h3>Blue Ocean</h3>
-						<span>John Doe</span>
-						<div class="price">
-							<span class="old-price">$39.99</span>
-							<span class="value">$35</span>
-						</div>
-						<button class="add-to-cart-btn">Add to Cart</button>
-					</div>
-				</div>
+			<div id="products-container" class="products-container">
+				<!-- Dynamic product elements will be inserted here -->
 			</div>
-			<!-- Additional listings can be added similarly -->
 		</div>
 	</section>
     <!-- JavaScript code for generating book cards dynamically -->
-	<!-- <script src="js/books.js"></script> -->
-		
+	<script src="js/books.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/script.js"></script>
+
+	
 </body>
 
 </html>

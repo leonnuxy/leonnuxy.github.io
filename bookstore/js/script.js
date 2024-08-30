@@ -1,92 +1,94 @@
+var cart = {}; // Object to hold cart items
 
 // Slider Functions
-// Open slider 
 function openSlider(sliderId) {
     document.getElementById(sliderId).classList.add('active');
 }
 
-// CLose slider
 function closeSlider(sliderId) {
     document.getElementById(sliderId).classList.remove('active');
 }
 
-// Cart Actions:
-// document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
-//     button.addEventListener('click', function() {
-//         const productTile = this.closest('.product-tile');
-//         const bookTitle = productTile.querySelector('h3').textContent;
-//         const bookPrice = productTile.querySelector('.value').textContent;
-
-//         const cartSlider = document.getElementById('cart-slider');
-//         const cartContent = cartSlider.querySelector('.slider-content');
-
-//         let emptyCartText = cartContent.querySelector('h2');
-//         if (emptyCartText) {
-//             emptyCartText.remove();
-//         }
-
-//         const cartItem = document.createElement('div');
-//         cartItem.className = 'cart-item';
-//         cartItem.innerHTML = `
-//             <h4>${bookTitle}</h4>
-//             <div class="item-price">${bookPrice}</div>
-//             <button class="remove-item" onclick="removeCartItem(this)">Remove</button>
-//         `;
-
-//         cartContent.appendChild(cartItem);
-
-//         openSlider('cart-slider');
-//     });
-// });
-
-document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
-    button.addEventListener('click', function() {
-        // Your existing code to add the item to the cart goes here
-        console.log('Add to Cart button was clicked.'); // Log the click event
-        // Show the "Added to Cart" notification
-        const notification = document.getElementById('cart-notification');
-        notification.classList.add('show');
-        notification.classList.remove('hidden');
-
-        // Hide the notification after 3 seconds
-        setTimeout(function() {
-            notification.classList.remove('show');
-            notification.classList.add('hidden');
-        }, 3000);
-    });
-});
-
+// Define removeCartItem outside of DOMContentLoaded
 function removeCartItem(button) {
     const cartItem = button.closest('.cart-item');
-    cartItem.remove();
+    const bookTitle = cartItem.getAttribute('data-title');
 
+    if (cart[bookTitle].quantity > 1) {
+        cart[bookTitle].quantity -= 1;
+        cartItem.querySelector('.item-quantity').textContent = `Qty: ${cart[bookTitle].quantity}`;
+    } else {
+        cartItem.remove();
+        delete cart[bookTitle];
+    }
+
+    // Check if the cart is empty
     const cartContent = document.querySelector('#cart-slider .slider-content');
-    if (cartContent.children.length === 1) {
+    if (Object.keys(cart).length === 0) { // If no items left in cart
         const emptyCartText = document.createElement('h2');
         emptyCartText.textContent = "Your Cart is Empty";
         cartContent.appendChild(emptyCartText);
     }
 }
 
-// Popup functions
-// Open popup
-function openPopup(popupId) {
-    document.getElementById(popupId).classList.add('active');
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+    addToCartButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
 
-// Close popup
-function closePopup(popupId) {
-    document.getElementById(popupId).classList.remove('active');
-}
+            // Show the "Added to Cart" notification
+            const notification = document.getElementById('cart-notification');
+            notification.classList.add('show');
+            notification.classList.remove('hidden');
 
-// Cart Section
-document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const bookId = this.getAttribute('data-id');
-        // Add book to cart in local storage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(bookId);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert('Book added to cart!');
+            // Hide the notification after 3 seconds
+            setTimeout(function() {
+                notification.classList.remove('show');
+                notification.classList.add('hidden');
+            }, 3000);
+
+            // Add the item to the cart slider
+            const productTile = this.closest('.product-tile');
+            const bookTitle = productTile.querySelector('h3').textContent;
+            const bookPrice = productTile.querySelector('.value').textContent;
+
+            const cartSlider = document.getElementById('cart-slider');
+            const cartContent = cartSlider.querySelector('.slider-content');
+
+            // If the book is already in the cart, increase its quantity
+            if (cart[bookTitle]) {
+                cart[bookTitle].quantity += 1;
+                const existingItem = cartContent.querySelector(`[data-title="${bookTitle}"]`);
+                existingItem.querySelector('.item-quantity').textContent = `Qty: ${cart[bookTitle].quantity}`;
+            } else {
+                // Add a new book to the cart
+                cart[bookTitle] = {
+                    title: bookTitle,
+                    price: bookPrice,
+                    quantity: 1
+                };
+
+                let emptyCartText = cartContent.querySelector('h2');
+                if (emptyCartText) {
+                    emptyCartText.remove();
+                }
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.setAttribute('data-title', bookTitle);
+                cartItem.innerHTML = `
+                    <h4>${bookTitle}</h4>
+                    <div class="item-price">${bookPrice}</div>
+                    <div class="item-quantity">Qty: 1</div>
+                    <button class="remove-item" onclick="removeCartItem(this)">Remove</button>
+                `;
+
+                cartContent.appendChild(cartItem);
+            }
+
+            // Open the cart slider
+            openSlider('cart-slider');
+        });
     });
 });

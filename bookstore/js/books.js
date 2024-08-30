@@ -1,66 +1,130 @@
-const books = [
-    {
-        title: "Book Title 1",
-        author: "Author Name 1",
-        price: "$10.00",
-        image: "path/to/book-cover1.jpg",
-        id: 1
-    },
-    {
-        title: "Book Title 2",
-        author: "Author Name 2",
-        price: "$12.00",
-        image: "path/to/book-cover2.jpg",
-        id: 2
-    },
-    {
-        title: "Book Title 3",
-        author: "Author Name 3",
-        price: "$15.00",
-        image: "path/to/book-cover3.jpg",
-        id: 3
+document.addEventListener('DOMContentLoaded', function() {
+    const books = [
+        { title: "Blue Ocean", author: "John Doe", price: "$28.99", old_price: "$38.99", image: "books/images/image.png", id: 1, category: "Fiction" },
+        { title: "Red Heart", author: "Aumkerr Helllk", price: "$10.99", old_price: "$30.00", image: "books/images/image_copy_1.png", id: 2, category: "Non-Fiction" },
+        { title: "Serenity", author: "Yarr Deren", price: "$12.99", old_price: "$32.99", image: "books/images/image_copy_2.png", id: 2, category: "Non-Fiction" },
+        { title: "Charmers", author: "Hadly Chase", price: "$24.99", old_price: "49.99", image: "books/images/image_copy_3.png", id: 2, category: "Non-Fiction" },
+        { title: "Dr. House", author: "John Kerr", price: "$15.99", old_price: "$42.99", image: "books/images/image_copy_4.png", id: 2, category: "Non-Fiction" },
+        { title: "Fully Charged", author: "Authur Seth", price: "$30.99", old_price: "$41.00", image: "books/images/image_copy_5.png", id: 2, category: "Non-Fiction" },
+        { title: "Half Sparrow", author: "Declan Rice", price: "$12.99", old_price: "$32.99", image: "books/images/image_copy_6.png", id: 2, category: "Fiction" },
+        { title: "Hold The Door", author: "John Kerr", price: "$64.99", old_price: "$79.99", image: "books/images/image_copy_7.png", id: 2, category: "Fiction" },
+        { title: "Grey Eagle", author: "Arthur Fils", price: "$24.99", old_price: "$42.00", image: "books/images/image_copy_8.png", id: 2, category: "Non-Fiction" },
+        { title: "Train Farm", author: "Sarah Conor", price: "$31.99", old_price: "$59.00", image: "books/images/image_copy_9.png", id: 2, category: "Non-Fiction" },
+        { title: "Texas Living", author: "John Kerr", price: "$12.99", old_price: "$32.99", image: "books/images/image_copy_10.png", id: 2, category: "Fiction" }
+  
+        // Add more books as needed
+    ];
+
+    // Get a unique list of authors
+    const authors = [...new Set(books.map(book => book.author))];
+
+    // Find the author dropdown menu in the DOM
+    const authorDropdown = document.getElementById('author-dropdown');
+
+    // Generate the list items for the dropdown menu
+    authors.forEach(function(author) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = "#";
+        a.title = author;
+        a.textContent = author;
+        li.appendChild(a);
+        authorDropdown.appendChild(li);
+    });
+
+    // Find the products container
+    const productsContainer = document.getElementById('products-container');
+
+    // Function to create product card
+    function createProductCard(book) {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.setAttribute('data-author', book.author);
+        productDiv.setAttribute('category', book.category);
+
+        const productTileDiv = document.createElement('div');
+        productTileDiv.className = 'product-tile';
+
+        const imageContainerDiv = document.createElement('div');
+        imageContainerDiv.className = 'image-container';
+
+        const imageContainerInnerDiv = document.createElement('div');
+        imageContainerInnerDiv.className = 'image-container-inner';
+
+        const img = document.createElement('img');
+        img.className = 'tile-image';
+        img.src = book.image;
+        img.alt = book.title;
+        img.title = book.title;
+
+        const tileBodyDiv = document.createElement('div');
+        tileBodyDiv.className = 'tile-body';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = book.title;
+
+        const authorSpan = document.createElement('span');
+        authorSpan.textContent = book.author;
+
+        const priceDiv = document.createElement('div');
+        priceDiv.className = 'price';
+
+        const oldPriceSpan = document.createElement('span');
+        oldPriceSpan.className = 'old-price';
+        oldPriceSpan.textContent = book.old_price;
+
+        const priceValueSpan = document.createElement('span');
+        priceValueSpan.className = 'value';
+        priceValueSpan.textContent = book.price;
+
+        const button = document.createElement('button');
+        button.className = 'add-to-cart-btn';
+        button.textContent = 'Add to Cart';
+
+        // Append elements to build the product card structure
+        imageContainerInnerDiv.appendChild(img);
+        imageContainerDiv.appendChild(imageContainerInnerDiv);
+        productTileDiv.appendChild(imageContainerDiv);
+
+        tileBodyDiv.appendChild(h3);
+        tileBodyDiv.appendChild(authorSpan);
+        priceDiv.appendChild(oldPriceSpan);
+        priceDiv.appendChild(priceValueSpan);
+        tileBodyDiv.appendChild(priceDiv);
+        tileBodyDiv.appendChild(button);
+
+        productTileDiv.appendChild(tileBodyDiv);
+        productDiv.appendChild(productTileDiv);
+
+        return productDiv;
     }
-];
 
+    // Generate and insert all product cards
+    books.forEach(function(book) {
+        const productCard = createProductCard(book);
+        productsContainer.appendChild(productCard);
+    });
 
-const bookGrid = document.querySelector('.book-grid');
+    // Add event listeners to filter books by author when clicked
+    authorDropdown.querySelectorAll('a').forEach(function(authorLink) {
+        authorLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            const filter = this.textContent.trim();
+            filterProducts('data-author', filter);
+        });
+    });
 
-books.forEach(book => {
-    const bookCard = `
-        <div class="book-card">
-            <img src="${book.image}" alt="${book.title}">
-            <h3>${book.title}</h3>
-            <p>Author: ${book.author}</p>
-            <p>Price: ${book.price}</p>
-            <button class="add-to-cart-btn" data-id="${book.id}">Add to Cart</button>
-        </div>        <div class="product" data-pid="${book.id}">
-            <div class="product-tile">
-                <div class="image-container">
-                    <div class="image-container-inner">
-                        <img class="tile-image" src="${book.imageSrc}" alt="${book.title}" title="${book.title}" loading="eager">
-                    </div>
-                </div>
-                <div class="tile-body">
-                    <div class="pdp-link">
-                        <h3>${book.title}</h3>
-                    </div>
-                    <span class="tile-text-light mouse">
-                        <span class="tile-text-light label-4">${book.author}</span>
-                    </span>
-                    <span class="tile-text-light mouse variant-format-label">${book.format}</span>
-                    <div class="price">
-                        <span class="price-wrapper">
-                            <span class="sales sale-true">
-                                <span class="value">
-                                    ${book.price}
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <button class="add-to-cart-btn" data-id="${book.id}">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    `;
-    bookGrid.innerHTML += bookCard;
+    // Function to filter products based on the attribute and value
+    function filterProducts(attribute, value) {
+        const products = document.querySelectorAll('.product');
+        products.forEach(function(product) {
+            const productAttribute = product.getAttribute(attribute);
+
+            if (productAttribute === value) {
+                product.style.display = 'block'; // Show products that match the filter
+            } else {
+                product.style.display = 'none'; // Hide products that don't match
+            }
+        });
+    }
 });
