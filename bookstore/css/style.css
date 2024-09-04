@@ -462,9 +462,11 @@ body::before {
 /* Container to hold the grid */
 .book-listing .container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    gap: 20px; /* Spacing between items */
-    padding: 20px; /* Adjust padding to give space from the edges */
+    grid-template-columns: repeat(7, 1fr); /* 5 columns */
+    gap: 10px; /* Spacing between items */
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Products container */
@@ -487,8 +489,8 @@ body::before {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    border-radius: 10px;
-    background-color: #fff;
+    border-radius: 5px;
+    background-color: black;
 }
 
 .hidden {
@@ -496,7 +498,7 @@ body::before {
 }
 
 .tile-body {
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -505,8 +507,12 @@ body::before {
 
 .image-container {
     position: relative;
-    padding: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
+    border-radius: 0px;
+    background-color: black;
 }
 
 .image-container-inner {
@@ -522,19 +528,21 @@ body::before {
 }
 
 .tile-body {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
     position: relative;
+    background-color: black;
 }
 
 .tile-body h3 {
     font-size: 16px;
     margin: 5px 0;
+    color: white;
 }
 
 .tile-body span {
     display: block;
-    color: #666;
+    color: #c9c6c6;
     margin: 5px 0;
     font-size: 12px;
 }
