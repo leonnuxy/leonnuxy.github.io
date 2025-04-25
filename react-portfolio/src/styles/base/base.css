@@ -1,0 +1,54 @@
+/* base.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  background: var(--background-light);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--primary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+button {
+  font-family: inherit;
+  background: var(--button-bg);
+  color: var(--button-color);
+  border: 1px solid var(--button-border);
+  border-radius: var(--border-radius);
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+button:hover {
+  background: var(--secondary-color);
+  color: var(--background-light);
+}
+
+ul, ol {
+  padding-left: 1.5em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

@@ -1,0 +1,387 @@
+.experience-section {
+  padding: 2rem 2rem;
+  background: transparent;
+}
+
+.experience-section h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.experience-section h2::after {
+  content: "";
+  display: block;
+  margin: 1.1rem auto 0.7rem auto;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #b6d8f6 0%, #e3e8ff 100%);
+  opacity: 0.25;
+  border-radius: 1px;
+}
+
+.experience-carousel-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.experience-carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.experience-card {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  /* Add more padding for mobile below */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  width: 340px;
+  min-height: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+/* Make logo bigger */
+.experience-logo-container {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid var(--border-color, #eee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border-radius: 50%;
+  display: block;
+  /* Prevents square logos from overflowing the circle */
+  padding: 8px;
+  box-sizing: border-box;
+  /* Optional: white background for transparent PNGs */
+  background-color: #fff;
+}
+
+.experience-row {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Add vertical spacing for company, location, and date */
+.experience-company-location-date {
+  display: flex;
+  flex-direction: column;
+  gap: 2.0rem;
+  margin-bottom: 1.5rem;
+  padding: 0 0.7rem;
+}
+
+.experience-location-date-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin-bottom: 0.1rem;
+}
+
+.experience-location {
+  font-size: 0.98rem;
+  color: var(--text-secondary, #666);
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  margin-bottom: 0;
+  padding-right: 0.5rem;
+}
+
+.experience-period {
+  font-size: 0.98rem;
+  color: var(--text-secondary, #666);
+  font-style: italic;
+  text-align: right;
+  margin-bottom: 0;
+  padding-left: 0.5rem;
+}
+
+.experience-employer {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0.1rem;
+}
+
+/* Add padding from edge of card container */
+.experience-description,
+.experience-points {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+/* Reduce size of experience points */
+.experience-points {
+  font-size: 0.93rem;
+  margin: 0.7rem 0 0.3rem 0;
+}
+
+.experience-description {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.experience-description li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.experience-description li::before {
+  content: "•";
+  color: var(--secondary-color);
+  position: absolute;
+  left: 0;
+}
+
+.dropdown-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.toggle-details {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.toggle-details:hover {
+  background: rgba(0, 204, 255, 0.08);
+}
+
+.carousel-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(180,180,180,0.18) 60%, rgba(180,180,180,0.04) 100%);
+}
+
+.carousel-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(180,180,180,0.18) 60%, rgba(180,180,180,0.04) 100%);
+}
+
+/* Make tool tags bigger */
+.experience-tool-pill {
+  font-size: 0.95rem;
+  padding: 4px 14px;
+  margin-bottom: 4px;
+  background: #f0f1f3;
+  color: #333;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid #e0e0e0;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Dark Mode */
+body.dark-mode .experience-tool-pill {
+  background: #23272f;
+  color: #e0e6ed;
+  border: 1px solid #3a3f4b;
+}
+
+/* Dark Mode */
+body.dark-mode .experience-card {
+  background: var(--background-card);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 1px 1px var(--highlight-color), 0 8px 16px var(--shadow-color);
+}
+body.dark-mode .experience-card:hover {
+  box-shadow: inset 0 1px 1px var(--highlight-color), 0 12px 32px var(--shadow-color);
+  border-color: var(--neon-blue);
+}
+body.dark-mode .experience-logo-container {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--neon-blue);
+}
+body.dark-mode .experience-title {
+  color: var(--text-color);
+}
+body.dark-mode .experience-employer {
+  color: var(--neon-blue);
+}
+body.dark-mode .experience-period,
+body.dark-mode .experience-location {
+  color: var(--text-secondary);
+}
+body.dark-mode .experience-description li::before {
+  color: var(--neon-blue);
+}
+
+/* Infinite auto-scrolling carousel for mobile */
+@media (max-width: 700px) {
+  .experience-carousel-container {
+    gap: 1rem;
+    padding-bottom: 1rem;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: -2vw;
+    margin-right: -2vw;
+    box-sizing: border-box;
+    animation: experience-carousel-scroll 30s linear infinite;
+    will-change: transform;
+  }
+  .experience-tools {
+    gap: 4px;
+    margin: 6px 0;
+    justify-content: flex-start;
+  }
+  .experience-section {
+    padding: 2rem 1rem;
+  }
+  .experience-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .experience-section h2::after {
+    width: 80px;
+  }
+  .experience-card {
+    width: 92vw;
+    min-width: 92vw;
+    max-width: 98vw;
+    padding: 1.5rem 1rem;
+  }
+  .experience-logo-container {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  .experience-tool-pill {
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+  .experience-points {
+    font-size: 0.85rem;
+    margin: 0.5rem 0 0.2rem 0;
+  }
+}
+
+/* Even smaller on very small screens */
+@media (max-width: 420px) {
+  .experience-section {
+    padding: 1rem 0.5rem;
+  }
+  .experience-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .experience-section h2::after {
+    width: 60px;
+  }
+
+  .carousel-fade-left, .carousel-fade-right {
+    width: 0px;
+  }
+  .experience-carousel-container {
+    width: 98vw;
+    max-width: 100vw;
+    margin-left: -10vw;
+    margin-right: -10vw;
+    box-sizing: border-box;
+  }
+  .experience-card {
+    width: 70vw;
+    min-width: 70vw;
+    max-width: 99vw;
+    padding: 1rem 0.5rem;
+  }
+  .experience-logo-container {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+  }
+  .experience-tool-pill {
+    font-size: 0.82rem;
+    padding: 2px 8px;
+  }
+  .experience-points {
+    font-size: 0.77rem;
+    margin: 0.3rem 0 0.1rem 0;
+  }
+
+  .experience-description li{
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+.experience-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+  padding-bottom: 0.2rem;
+}
+
+/* Responsive adjustments for tools row */
+@media (max-width: 420px) {
+  .experience-tools {
+    gap: 5px;
+    margin: 4px 0;
+    justify-content: center;
+  }
+}
+
+/* Keyframes for infinite scroll */
+@keyframes experience-carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1%);
+  }
+}

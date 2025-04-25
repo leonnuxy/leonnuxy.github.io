@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Supply Chain Analytics Platform",
+    "company": "Parkland Fuel Corp.",
+    "skills": ["Power BI", "SQL", "APIs", "Excel"],
+    "description": "Built a Power BI dashboard integrating SQL, Excel, and APIs, reducing manual reporting efforts by 60% for logistics teams. Unified 5+ data sources into a single interface for real-time decision-making.",
+    "link": "#",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Vaccine Booking System",
+    "company": "Alberta Health Services",
+    "skills": ["React", "TypeScript", "AWS", "DynamoDB", "Node.js"],
+    "description": "Developed a secure, scalable full-stack platform and backend, handling 500+ daily appointments. Leveraged AWS (Lambda, S3, DynamoDB) for serverless architecture, achieving 99.9% uptime. Implemented Jest unit tests and CI/CD pipelines, reducing post-launch bugs by 30%.",
+    "link": "https://bookvaccine.alberta.ca/vaccine/s/booking",
+    "image": "/ahs_project_image.png"
+  },
+  {
+    "title": "Gas Pipeline Monitoring",
+    "company": "Spartan Controls",
+    "skills": ["Python", "Django", "PostgreSQL", "JavaScript"],
+    "description": "Created a Python/Django tool for real-time pipeline diagnostics, reducing inspection time by 45%. Designed PostgreSQL schemas to store sensor data, improving query speeds by 25%.",
+    "link": "#",
+    "image": "/gas-pipeline-monitoring.jpg"
+  },
+  {
+    "title": "Customer Churn Prediction Model",
+    "company": "Personal Project",
+    "skills": ["Python", "TensorFlow", "Pandas", "NumPy"],
+    "description": "Trained a TensorFlow machine learning model with 92% accuracy using Python (Pandas/NumPy), enabling targeted customer retention strategies.",
+    "link": "#",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "AI Resume Optimizer",
+    "company": "Personal Project",
+    "skills": ["Python", "MySQL", "NLP", "Ollama", "Mistral"],
+    "description": "Designed a Python/MySQL application to analyze resumes against job descriptions, improving alignment for 100+ test users. Automated formatting/structure recommendations using NLP techniques.",
+    "link": "#",
+    "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Bookstore Website",
+    "company": "Personal Project",
+    "skills": ["HTML", "CSS", "JavaScript", "MySQL"],
+    "description": "Created a website for purchasing books with checkout systems.",
+    "link": "https://leonnuxy.github.io/bookstore",
+    "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Restaurant App",
+    "company": "Personal Project",
+    "skills": ["Django", "Python", "SQLite", "React"],
+    "description": "Developed a web application for restaurant management, integrating Django, Python, SQLite and React.",
+    "link": "https://leonnuxy.github.io/resturant_app",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "MindPal App",
+    "company": "Personal Project",
+    "skills": ["SQLite", "React", "JavaScript"],
+    "description": "An application aimed at boosting mental health and wellness by providing interactive games and activities.",
+    "link": "https://mindpalapp.com/web",
+    "image": "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "MentalBud WebApp",
+    "company": "Personal Project",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "description": "A mobile app for mental health and wellness, providing users with tools and resources to manage stress and anxiety.",
+    "link": "mentalbud/index.html",
+    "image": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "title": "Calculator Project",
+    "company": "Personal Project",
+    "skills": ["JavaScript", "HTML", "CSS"],
+    "description": "A modern, responsive calculator application featuring keyboard support, basic arithmetic operations, and a clean UI.",
+    "link": "calculator/index.html",
+    "image": "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=600&q=80"
+  }
+]

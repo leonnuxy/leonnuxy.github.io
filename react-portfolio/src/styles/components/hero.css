@@ -1,0 +1,322 @@
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 4rem;
+  position: relative;
+  flex-direction: row;
+  text-align: left;
+  margin-top: 2rem;
+  background: transparent;
+  min-height: unset;
+  overflow: visible;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-image-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  position: relative;
+  background: var(--background-light);
+  flex-shrink: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateX(-60vw) rotate(-180deg) scale(0.2);
+  animation: hero-image-roll-in 1s cubic-bezier(.4,2,.3,1) 0.01s forwards;
+}
+
+@keyframes hero-image-roll-in {
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-content {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.hero-accepting {
+  display: inline-block;
+  background: #d6f5e3; /* light green */
+  color: #217a4b;      /* dark green */
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.35em 1.1em;
+  border-radius: 1.2em;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 1px 4px rgba(33,122,75,0.06);
+  width: fit-content;
+}
+
+.hero-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: var(--primary-color, #222);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 2.5rem;
+  color: var(--secondary-color, #101111);
+  margin-bottom: 1.2rem;
+  padding-top: 0.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  max-width: 600px;
+  line-height: 1.4;
+}
+
+.about-me-content {
+  margin-top: 0.5rem;
+  max-width: 700px;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--primary-color, #222);
+  background: transparent;
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.about-me-content p {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: about-fade-in-up-stagger 0.7s cubic-bezier(.4,2,.3,1) forwards;
+}
+
+.about-me-content p:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.about-me-content p:nth-child(2),
+.about-me-content .interests-section {
+  animation-delay: 0.5s;
+}
+
+.about-me-content .interests-section {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: about-fade-in-up-stagger 0.7s cubic-bezier(.4,2,.3,1) forwards;
+}
+
+@keyframes about-fade-in-up-stagger {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-me-content p {
+  margin-bottom: 0.7rem;
+  color: inherit;
+}
+
+.about-me-content p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  font-size: 0.97rem;
+  color: var(--secondary-color, #444);
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 700px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-top: 0.1rem;
+  }
+
+  .hero-image-container {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0.1rem;
+  }
+
+  .hero-image {
+    height: 120%;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .about-me-content {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-title, .hero-subtitle {
+    text-align: center;
+  }
+  .hero-accepting {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-section {
+    padding: 1.2rem 0.2rem 1.2rem;
+    gap: 0.7rem;
+  }
+  .hero-image-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0.1rem;
+  }
+  .hero-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    padding-top: 0.2rem;
+  }
+  .about-me-content {
+    font-size: 0.93rem;
+    padding: 0 0.1rem;
+  }
+  .hero-accepting {
+    font-size: 1.5rem; /* updated font size */
+    padding: 0.25em 0.7em;
+    margin-bottom: 0.7rem;
+  }
+}
+
+/* Dark mode specific hero styles */
+body.dark-mode .hero-section {
+  background: transparent;
+}
+
+body.dark-mode .hero-title {
+  color: var(--text-color, #fff);
+  text-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
+}
+
+body.dark-mode .hero-subtitle {
+  color: var(--accent-color, #90caf9);
+}
+
+body.dark-mode .about-me-content {
+  color: var(--text-color, #fff);
+}
+
+body.dark-mode .about-me-content p:last-child {
+  color: var(--accent-color, #90caf9);
+}
+
+body.dark-mode .hero-accepting {
+  background: #217a4b;
+  color: #d6f5e3;
+  box-shadow: 0 1px 4px rgba(214,245,227,0.10);
+}
+
+.interests-section {
+  margin-top: 1.1rem;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.interests-title {
+  font-weight: 700;
+  font-size: 1.09rem;
+  color: var(--secondary-color, #217a4b);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.interests-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 1.7em;
+  background: transparent;
+  margin-top: 0.1rem;
+}
+
+.interests-marquee-inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-left 12s linear infinite;
+  font-size: 1.02rem;
+  color: var(--primary-color, #222);
+  min-width: 100%;
+}
+
+.interest-item {
+  display: inline-block;
+  margin-right: 0.7em;
+  font-weight: 500;
+}
+
+.interest-separator {
+  color: var(--secondary-color, #217a4b);
+  opacity: 0.7;
+  margin: 0 0.2em;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .interests-section {
+    align-items: center;
+    width: 100%;
+  }
+  .interests-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .interests-marquee {
+    height: 1.5em;
+  }
+  .interests-marquee-inner {
+    font-size: 0.97rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .interests-title {
+    font-size: 0.93rem;
+  }
+  .interests-marquee-inner {
+    font-size: 0.93rem;
+  }
+}

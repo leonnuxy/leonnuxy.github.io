@@ -1,0 +1,37 @@
+/* variables.css */
+:root {
+  --primary-color: #213547;
+  --secondary-color: #646cff;
+  --accent-color: #90caf9;
+  --background-light: #ffffff;
+  --background-mid: #f5f5f5;
+  --background-dark: #eaeaea;
+  --text-color: #213547;
+  --text-secondary: #555;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --button-bg: #f9f9f9;
+  --button-color: #213547;
+  --button-border: #ccc;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Libre Baskerville', 'Baskerville', 'Montserrat', 'Segoe UI', Arial, serif;
+  --transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  --primary-color: #fff;
+  --secondary-color: #646cff;
+  --accent-color: #00ccff;
+  --background-light: #050911;
+  --background-mid: #0a1022;
+  --background-dark: #181c2a;
+  --text-color: #fff;
+  --text-secondary: #c0c8d8;
+  --card-bg: #181c2a;
+  --card-border: #23263a;
+  --button-bg: #1a1a1a;
+  --button-color: #fff;
+  --button-border: #646cff;
+}

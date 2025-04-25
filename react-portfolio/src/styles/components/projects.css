@@ -1,0 +1,505 @@
+/* ========================================
+   1. SECTION & HEADER STYLES
+   ======================================== */
+.projects-stacked-section {
+  padding: 8rem 0 4rem 0;
+  background: transparent;
+  min-height: 60vh;
+}
+
+.projects-stacked-header {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-color, #1a2233);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Dark mode header */
+.dark-mode .projects-stacked-header {
+  color: #f8fafc;
+}
+
+.projects-stacked-header::after {
+  content: "";
+  display: block;
+  margin: 1.1rem auto 0.7rem auto;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #b6d8f6 0%, #e3e8ff 100%);
+  opacity: 0.25;
+  border-radius: 1px;
+}
+
+/* Dark mode gradient line */
+.dark-mode .projects-stacked-header::after {
+  background: linear-gradient(90deg, #3bc9f6 0%, #5f75ff 100%);
+  opacity: 0.4;
+}
+
+/* ========================================
+   2. CARD CONTAINER & LAYOUT
+   ======================================== */
+.projects-stacked-cards {
+  position: relative;
+  width: 100%;
+  max-width: 420px; /* Increased to better show stacked cards */
+  margin: 0 auto;
+  height: 500px;
+  perspective: 1200px;
+}
+
+/* ========================================
+   3. CARD COMPONENT STYLES
+   ======================================== */
+.project-stacked-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: all 0.5s cubic-bezier(.4,0,.2,1);
+  opacity: 0;
+  pointer-events: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  filter: blur(2px); /* Reduced blur for better visibility */
+  transform-origin: center center;
+}
+
+/* Dark mode card */
+.dark-mode .project-stacked-card {
+  background: #1a2233;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Active card - front and center */
+.project-stacked-card.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) translateX(0) scale(1) rotateZ(0deg);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.18);
+  filter: blur(0);
+  z-index: 10; /* Highest z-index */
+}
+
+/* Dark mode active card */
+.dark-mode .project-stacked-card.active {
+  box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+}
+
+/* Previous card - behind and to the left */
+.project-stacked-card.prev {
+  opacity: 0.7;
+  transform: translateX(-25%) translateY(5%) scale(0.95) rotateZ(-3deg);
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Next card - behind and to the right */
+.project-stacked-card.next {
+  opacity: 0.7;
+  transform: translateX(25%) translateY(5%) scale(0.95) rotateZ(3deg);
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Hidden cards */
+.project-stacked-card.hidden {
+  opacity: 0;
+  transform: translateY(20%) scale(0.9);
+  z-index: 1;
+}
+
+/* Add hover effect for prev/next cards to hint they're interactive */
+.project-stacked-card.prev:hover,
+.project-stacked-card.next:hover {
+  opacity: 0.85;
+  filter: blur(0.5px);
+  cursor: pointer;
+}
+
+/* ========================================
+   4. CARD IMAGE AREA
+   ======================================== */
+.card-image-area {
+  position: relative;
+  width: 100%;
+  height: 65%;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  filter: brightness(0.8);
+}
+
+/* ========================================
+   5. OVERLAYS & SKILLS PILLS
+   ======================================== */
+.image-overlay-header {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.skills-pills {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+}
+
+/* Dark mode skill pill - slightly different background */
+.dark-mode .skill-pill {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.project-rating-overlay {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(5px);
+}
+
+/* Dark mode rating overlay */
+.dark-mode .project-rating-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   6. CARD CONTENT AREA
+   ======================================== */
+.card-content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  background: #fff;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Dark mode card content */
+.dark-mode .card-content {
+  background: #1a2233;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2233;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* Dark mode card title */
+.dark-mode .card-title {
+  color: #f8fafc;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: #1a2233;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Dark mode card description */
+.dark-mode .card-description {
+  color: #b0b8d6;
+}
+
+/* ========================================
+   7. FOOTER, COMPANY & BUTTONS
+   ======================================== */
+.card-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-company {
+  font-size: 1.0rem;
+  font-weight: 500;
+  color: #1a2233d6;
+  margin-top: 0;
+}
+
+/* Dark mode company name */
+.dark-mode .card-company {
+  color: #e3e8ffd6;
+}
+
+.explore-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 0.6rem 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Dark mode explore button */
+.dark-mode .explore-btn {
+  background: #3bc9f6;
+  box-shadow: 0 4px 15px rgba(59, 201, 246, 0.2);
+}
+
+.explore-btn:hover {
+  background: #333;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Dark mode explore button hover */
+.dark-mode .explore-btn:hover {
+  background: #4fd5ff;
+  box-shadow: 0 6px 20px rgba(59, 201, 246, 0.3);
+}
+
+.explore-btn span {
+  white-space: nowrap;
+}
+
+.explore-icon-circle {
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark mode icon circle */
+.dark-mode .explore-icon-circle {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.explore-arrow {
+  color: #000;
+  width: 24px;
+  height: 24px;
+}
+
+/* Dark mode arrow */
+.dark-mode .explore-arrow {
+  color: #1a2233;
+}
+
+/* ========================================
+   8. NAVIGATION BUTTONS
+   ======================================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: #1a2233;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  opacity: 0.9;
+  outline: none;
+  animation: pulse 2s infinite;
+}
+
+/* Dark mode navigation buttons */
+.dark-mode .nav-btn {
+  background: rgba(26, 34, 51, 0.9);
+  color: #f8fafc;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  animation: darkPulse 2s infinite;
+}
+
+.nav-btn-left {
+  left: -70px;
+}
+
+.nav-btn-right {
+  right: -70px;
+}
+
+.nav-btn:hover, .nav-btn:focus {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+}
+
+/* Dark mode nav button hover */
+.dark-mode .nav-btn:hover, 
+.dark-mode .nav-btn:focus {
+  background: #1a2233;
+  box-shadow: 0 6px 18px rgba(59, 201, 246, 0.25);
+}
+
+.nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  background: #f8f9fa;
+}
+
+/* Dark mode nav button active */
+.dark-mode .nav-btn:active {
+  background: #131923;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.nav-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:hover svg {
+  transform: scale(1.2);
+}
+
+.nav-btn-left:hover svg {
+  transform: scale(1.2) translateX(-2px);
+}
+
+.nav-btn-right:hover svg {
+  transform: scale(1.2) translateX(2px);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,204,255,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0,204,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,204,255,0); }
+}
+
+/* Dark mode pulse animation */
+@keyframes darkPulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 201, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 201, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 201, 246, 0); }
+}
+
+/* ========================================
+   9. RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 600px) {
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+  }
+  
+  .nav-btn-left {
+    left: -8px;
+  }
+  
+  .nav-btn-right {
+    right: -8px;
+  }
+  
+  .nav-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .card-content {
+    padding: 0.8rem 1rem;
+  }
+
+  .card-footer-row {
+    margin-top: 0.8rem;
+  }
+
+  .card-company {
+    font-size: 1.1rem;
+  }
+
+  .explore-btn {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .explore-icon-circle {
+    width: 26px;
+    height: 26px;
+  }
+
+  .explore-arrow {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Adjust stacking for small screens */
+  .projects-stacked-cards {
+    max-width: 90vw;
+    height: 450px;
+  }
+  
+  .project-stacked-card.prev {
+    transform: translateX(-15%) translateY(3%) scale(0.92) rotateZ(-2deg);
+    opacity: 0.5;
+  }
+  
+  .project-stacked-card.next {
+    transform: translateX(15%) translateY(3%) scale(0.92) rotateZ(2deg);
+    opacity: 0.5;
+  }
+}
