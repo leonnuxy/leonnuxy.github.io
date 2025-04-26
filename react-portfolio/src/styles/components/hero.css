@@ -55,6 +55,7 @@
 }
 
 .hero-title {
+  font-family: var(--font-family-heading, sans-serif);
   font-size: var(--font-3xl);
   color: var(--primary-color);
   margin-bottom: var(--space-1);
@@ -242,7 +243,7 @@
     max-width: 90px;
   }
   .hero-title {
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
     margin-bottom: var(--space-2);
   }
   .hero-subtitle {
