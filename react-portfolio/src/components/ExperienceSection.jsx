@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
 
 const experienceData = [
   {
@@ -62,9 +61,9 @@ const ExperienceSection = () => {
   const carouselRef = useRef(null);
   const scrollInterval = useRef(null);
   const pauseTimeout = useRef(null);
+  const scrollDirection = useRef(1); // 1 for right, -1 for left
 
   // Repeat the cards in the desired order for infinite scroll:
-  // [Software Engineer, Spartan Controls, Parkland, AHS, Software Engineer, Spartan Controls, ...]
   // This is achieved by repeating the experienceData array.
   const cards = [
     ...experienceData,
@@ -78,11 +77,20 @@ const ExperienceSection = () => {
     scrollInterval.current = setInterval(() => {
       const container = carouselRef.current;
       if (!container) return;
-      container.scrollLeft += 0.5;
-      // If at (or past) the ghost at end, jump to real first card
-      const cardWidth = 340 + 32; // card width + gap (px)
-      if (container.scrollLeft >= cardWidth * (cards.length - 1)) {
-        container.scrollLeft = cardWidth;
+      
+      // Scroll by the direction factor (positive or negative)
+      container.scrollLeft += (0.5 * scrollDirection.current);
+      
+      const cardWidth = 260 + 32; // Card width + gap
+      
+      // If reached right end, reverse direction to left
+      if (container.scrollLeft >= (cardWidth * (cards.length - 5))) {
+        scrollDirection.current = -1;
+      }
+      
+      // If reached left end, reverse direction to right
+      if (container.scrollLeft <= cardWidth) {
+        scrollDirection.current = 1;
       }
     }, 20);
   }, [cards.length]);
@@ -100,7 +108,7 @@ const ExperienceSection = () => {
     const container = carouselRef.current;
     if (container) {
       // Jump to first real card (skip ghost at start)
-      const cardWidth = 340 + 32;
+      const cardWidth = 260 + 32;
       container.scrollLeft = cardWidth;
     }
     startAutoScroll();
@@ -110,18 +118,17 @@ const ExperienceSection = () => {
     };
   }, [startAutoScroll, stopAutoScroll]);
 
-  // When user scrolls manually or via click, handle seamless looping
+  // Update scroll handler for manual scrolling
   const handleScroll = () => {
     const container = carouselRef.current;
     if (!container) return;
-    const cardWidth = 340 + 32;
-    // If at ghost at end, jump to first real card
-    if (container.scrollLeft >= cardWidth * (cards.length - 1)) {
-      container.scrollLeft = cardWidth;
-    }
-    // If at ghost at start, jump to last real card
-    if (container.scrollLeft <= 0) {
-      container.scrollLeft = cardWidth * (cards.length - 2);
+    const cardWidth = 260 + 32;
+    
+    // Update direction based on manual scroll position
+    if (container.scrollLeft >= (cardWidth * (cards.length - 5))) {
+      scrollDirection.current = -1;
+    } else if (container.scrollLeft <= cardWidth) {
+      scrollDirection.current = 1;
     }
   };
 
@@ -136,8 +143,8 @@ const ExperienceSection = () => {
 
   return (
     <section id="experience" className="experience-section">
-      <h2>EXPERIENCE</h2>
-      <div style={{ position: "relative" }}>
+      <h2 className="experience-header">EXPERIENCE</h2>
+      <div className="experience-carousel-wrapper">
         {/* Left gradient */}
         <div className="carousel-fade carousel-fade-left" />
         {/* Right gradient */}
@@ -145,7 +152,6 @@ const ExperienceSection = () => {
         <div
           className="experience-carousel-container"
           ref={carouselRef}
-          style={{ display: "flex", overflowX: "auto", scrollBehavior: "smooth" }}
           onScroll={handleScroll}
         >
           {cards.map((exp, idx) => {
@@ -163,7 +169,6 @@ const ExperienceSection = () => {
                 key={idx}
                 onClick={handleCardClick}
                 tabIndex={0}
-                style={{ cursor: "pointer" }}
               >
                 <div className="experience-logo-container">
                   <img

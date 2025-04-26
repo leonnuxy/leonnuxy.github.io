@@ -33,10 +33,12 @@
   }
 }
 
+/* Remove or comment out if card styles are defined in components/cards.css */
 .card {
   padding: 2em;
 }
 
+/* Remove or comment out if .read-the-docs is not used or is styled elsewhere */
 .read-the-docs {
   color: #888;
 }

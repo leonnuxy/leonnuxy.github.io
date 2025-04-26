@@ -12,7 +12,10 @@
 @import './layout/responsive.css';
 @import './components/hero.css';
 @import './components/experience.css';
+@import './components/projects.css'; /* Ensure this is included */
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Only keep selectors here if they are not defined in any imported file */
 
 .main-header {
   display: flex;
@@ -90,7 +93,7 @@ body.dark-mode .card {
 
 /* Override header bar in dark mode */
 body.dark-mode .header-bar {
-  background: rgba(10, 16, 35, 0.9);
+  background: transparent;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);

@@ -44,7 +44,7 @@ const Projects = () => {
 
   return (
     <section className="projects-stacked-section" id="projects">
-      <h2 className="projects-stacked-header">Projects</h2>
+      <h2 className="projects-stacked-header">PROJECTS</h2>
       <div className="projects-stacked-cards">
         {projectList.map((project, idx) => {
           let position = '';

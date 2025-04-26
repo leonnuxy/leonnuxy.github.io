@@ -3,15 +3,7 @@
   background: transparent;
 }
 
-.experience-section h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 3rem;
-  color: var(--primary-color);
-  position: relative;
-}
-
-.experience-section h2::after {
+.experience-header::after {
   content: "";
   display: block;
   margin: 1.1rem auto 0.7rem auto;
@@ -22,17 +14,89 @@
   border-radius: 1px;
 }
 
+/* =======================
+   EXPERIENCE CAROUSEL
+   ======================= */
+.experience-carousel-wrapper {
+  position: relative; /* Move from inline style */
+}
+
 .experience-carousel-container {
-  display: flex;
+  display: flex; /* Move from inline style */
+  overflow-x: auto; /* Move from inline style */
+  scroll-behavior: smooth; /* Move from inline style */
   gap: 2rem;
-  overflow-x: auto;
+  padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  padding-right: 80px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   will-change: scroll-position;
+  /* Limit the maximum translateX to -25% */
+  transform: translateX(max(-25%, var(--experience-carousel-translate, 0)));
 }
 .experience-carousel-container::-webkit-scrollbar {
   display: none;
+}
+
+/* Carousel fade gradients */
+.carousel-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 2;
+  pointer-events: none;
+}
+.carousel-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--fade-color, rgba(180,180,180,0.18)) 60%, var(--fade-color-light, rgba(180,180,180,0.04)) 100%);
+}
+.carousel-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--fade-color, rgba(180,180,180,0.18)) 60%, var(--fade-color-light, rgba(180,180,180,0.04)) 100%);
+}
+
+/* Keyframes for alternating scroll direction */
+@keyframes experience-carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Changed from -100% to -50% for smoother reversal */
+  }
+}
+
+/* Animation with alternate direction */
+@media (max-width: 700px) {
+  .experience-carousel-container {
+    gap: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 120px;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    box-sizing: border-box;
+    animation: experience-carousel-scroll 30s linear infinite alternate; /* Added 'alternate' for reverse */
+    transform: translateX(-1%); /* Changed to fixed -1% for mobile views */
+    will-change: transform;
+  }
+}
+
+@media (max-width: 420px) {
+  .experience-carousel-container {
+    width: 98vw;
+    max-width: 100vw;
+    margin-left: -10vw;
+    margin-right: -10vw;
+    box-sizing: border-box;
+    padding-right: 140px;
+    transform: translateX(-1%) !important; /* Changed to fixed -1% for mobile views */
+  }
+  .carousel-fade-left, .carousel-fade-right {
+    width: 0px;
+  }
 }
 
 .experience-card {
@@ -40,21 +104,34 @@
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   box-shadow: 0 6px 16px var(--shadow-color, rgba(0,0,0,0.06));
   border: 1px solid var(--border-color, #eaeaea);
-  width: var(--card-smd);
-  min-height: var(--card-mxl);
+  width: var(--card-smd);         /* was: var(--card-smd) or 340px, now narrower */
+  min-width: var(--card-smd);     /* ensure flexbox doesn't shrink below this */
+  max-width: var(--card-lg);      /* optional: set a max-width for consistency */
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   position: relative;
   transition: box-shadow 0.3s, transform 0.3s;
-  cursor: pointer;
+  cursor: pointer; /* Move from inline style */
   transform: translateZ(0);
   will-change: transform, opacity;
+  padding: 2rem;
 }
 
 .experience-card:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 12px 32px var(--shadow-color-hover, rgba(0,0,0,0.10));
+}
+
+.experience-header {
+    font-size: var(--font-xl, 2.1rem);
+    font-weight: var(--font-weight-extrabold, 800);
+    color: var(--primary-color, #1a2233);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: relative;
 }
 
 /* Make logo bigger */
@@ -207,25 +284,6 @@
   background: rgba(0, 204, 255, 0.08);
 }
 
-.carousel-fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 48px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.carousel-fade-left {
-  left: 0;
-  background: linear-gradient(to right, var(--fade-color, rgba(180,180,180,0.18)) 60%, var(--fade-color-light, rgba(180,180,180,0.04)) 100%);
-}
-
-.carousel-fade-right {
-  right: 0;
-  background: linear-gradient(to left, var(--fade-color, rgba(180,180,180,0.18)) 60%, var(--fade-color-light, rgba(180,180,180,0.04)) 100%);
-}
-
 /* Make tool tags smaller */
 .experience-tool-pill {
   font-size: var(--font-xs);
@@ -281,163 +339,20 @@ body.dark-mode .experience-description li::before {
   .experience-carousel-container {
     gap: 1rem;
     padding-bottom: 1rem;
+    padding-right: 120px; /* Increase padding on mobile view */
     width: 100vw;
     max-width: 100vw;
     margin-left: -2rem;
     margin-right: -2rem;
     box-sizing: border-box;
-    animation: experience-carousel-scroll 60s linear infinite; /* Increased duration for smoother appearance */
+    animation: experience-carousel-scroll 30s linear infinite alternate; /* Added 'alternate' to reverse direction */
+    transform: translateX(-1%); /* Changed to fixed -1% for mobile views */
     will-change: transform;
   }
-  .experience-tools {
-    gap: 4px;
-    margin: 6px 0;
-    justify-content: flex-start;
-  }
-  .experience-section {
-    padding: 2rem 1rem;
-  }
-  .experience-section h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .experience-section h2::after {
-    width: 80px;
-  }
   .experience-card {
-    width: 92vw;
-    min-width: 92vw;
-    max-width: 98vw;
-    padding: 1.5rem 1rem;
-  }
-  .experience-logo-container {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1rem;
-  }
-  .experience-tool-pill {
-    font-size: 0.82rem;
-    padding: 2px 8px;
-  }
-  .experience-points {
-    font-size: 0.85rem;
-    margin: 0.5rem 0 0.2rem 0;
-  }
-}
-
-/* Even smaller on very small screens */
-@media (max-width: 420px) {
-  .experience-section {
-    padding: 1rem 0.5rem;
-  }
-  .experience-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-  .experience-section h2::after {
-    width: 60px;
-  }
-
-  .carousel-fade-left, .carousel-fade-right {
-    width: 0px;
-  }
-  .experience-carousel-container {
-    width: 98vw;
-    max-width: 100vw;
-    margin-left: -10vw;
-    margin-right: -10vw;
-    box-sizing: border-box;
-  }
-  .experience-card {
-    width: 70vw;
-    min-width: 70vw;
-    max-width: 99vw;
-    padding: 1rem 0.5rem;
-  }
-  .experience-logo-container {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.5rem;
-  }
-  .experience-tool-pill {
-    font-size: 0.78rem;
-    padding: 2px 6px;
-  }
-  .experience-points {
-    font-size: 0.77rem;
-    margin: 0.3rem 0 0.1rem 0;
-  }
-
-  .experience-description li{
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-}
-
-.experience-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px; /* Reduced from 6px */
-  margin: 6px 0; /* Reduced from 8px */
-  padding-bottom: 0.2rem;
-}
-
-/* Responsive adjustments for tools row */
-@media (max-width: 420px) {
-  .experience-tools {
-    gap: 5px;
-    margin: 4px 0;
-    justify-content: center;
-  }
-}
-
-/* Keyframes for infinite scroll - improved with greater movement */
-@keyframes experience-carousel-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%); /* Changed from -1% to make scrolling more visible */
-  }
-}
-
-/* Add animation pause on hover */
-.experience-carousel-container:hover {
-  animation-play-state: paused;
-}
-
-/* Improve animation timing for better user experience */
-@media (max-width: 700px) {
-  .experience-carousel-container {
-    gap: 1rem;
-    padding-bottom: 1rem;
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: -2rem;
-    margin-right: -2rem;
-    box-sizing: border-box;
-    animation: experience-carousel-scroll 60s linear infinite; /* Increased duration for smoother appearance */
-    will-change: transform;
-  }
-  .experience-tools {
-    gap: 4px;
-    margin: 6px 0;
-    justify-content: flex-start;
-  }
-  .experience-section {
-    padding: 2rem 1rem;
-  }
-  .experience-section h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .experience-section h2::after {
-    width: 80px;
-  }
-  .experience-card {
-    width: 92vw;
-    min-width: 92vw;
-    max-width: 98vw;
+    width: 75vw;
+    min-width: 75vw;
+    max-width: 90vw;
     padding: 1.5rem 1rem;
   }
   .experience-logo-container {
@@ -455,19 +370,18 @@ body.dark-mode .experience-description li::before {
   }
 }
 
-/* Even smaller on very small screens */
+/* Consolidated all @media (max-width: 420px) rules into one block */
 @media (max-width: 420px) {
   .experience-section {
     padding: 1rem 0.5rem;
   }
-  .experience-section h2 {
+  .experience-header {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
-  .experience-section h2::after {
+  .experience-header::after {
     width: 60px;
   }
-
   .carousel-fade-left, .carousel-fade-right {
     width: 0px;
   }
@@ -477,10 +391,12 @@ body.dark-mode .experience-description li::before {
     margin-left: -10vw;
     margin-right: -10vw;
     box-sizing: border-box;
+    padding-right: 140px; /* Even more padding on smaller screens */
+    transform: translateX(-1%); /* Changed to fixed -1% for mobile views */
   }
   .experience-card {
-    width: 70vw;
-    min-width: 70vw;
+    width: 90vw;
+    min-width: 90vw;
     max-width: 99vw;
     padding: 1rem 0.5rem;
   }
@@ -497,10 +413,14 @@ body.dark-mode .experience-description li::before {
     font-size: 0.77rem;
     margin: 0.3rem 0 0.1rem 0;
   }
-
-  .experience-description li{
+  .experience-description li {
     font-size: 0.85rem;
     line-height: 1.4;
+  }
+  .experience-tools {
+    gap: 5px;
+    margin: 4px 0;
+    justify-content: center;
   }
 }
 

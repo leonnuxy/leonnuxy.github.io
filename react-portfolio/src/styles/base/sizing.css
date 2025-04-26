@@ -1,3 +1,6 @@
+/* Only sizing variables in :root and @media queries. */
+/* Remove any element/class selectors if present. */
+
 /* Unified Sizing System */
 
 :root {

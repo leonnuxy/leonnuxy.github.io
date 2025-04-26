@@ -1,5 +1,6 @@
 /* Hero Section Styles */
 .hero-section {
+  /* Only include desktop-specific styles here */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +9,7 @@
   flex-direction: row;
   text-align: left;
   margin-top: 2rem;
-  background: transparent;
+  background: transparent; /* was transparent */
   min-height: unset;
   overflow: visible;
   gap: 2rem;
@@ -20,9 +21,8 @@
   height: var(--image-md);
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--primary-color);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  position: relative;
+  /* border: 3px solid var(--primary-color); */
+  box-shadow: 0 4px 16px var(--shadow-color);
   background: var(--background-light);
   flex-shrink: 0;
   margin-right: 0;
@@ -55,7 +55,7 @@
 }
 
 .hero-title {
-  font-size: var(--font-3xl);  /* Use font size from sizing system */
+  font-size: var(--font-3xl);
   color: var(--primary-color);
   margin-bottom: var(--space-1);
   padding-top: var(--space-2);
@@ -71,7 +71,7 @@
   text-align: left;
   font-size: 1rem;
   line-height: 1.5;
-  color: var(--primary-color, #222);
+  color: var(--primary-color);
   background: transparent;
   opacity: 1;
   transform: none;
@@ -116,29 +116,94 @@
   margin-bottom: 0;
   font-style: italic;
   font-size: 0.97rem;
-  color: var(--secondary-color, #444);
+  color: var(--secondary-color);
 }
 
-/* Responsive: stack vertically on small screens */
+/* Responsive adjustments for hero section */
+@media (max-width: 767px) {
+  .hero-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: var(--space-6) var(--space-2);
+    gap: var(--space-4);
+    text-align: center;
+    margin-top: 0.1rem;
+    background: var(--background-light);
+  }
+  .hero-image-container {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto var(--space-3);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    background: var(--background-light);
+  }
+  .about-me-content {
+    width: 100%;
+    margin-top: var(--space-3);
+    text-align: center;
+    max-width: 100%;
+    background: var(--background-light);
+    color: var(--primary-color);
+  }
+  .hero-title {
+    color: var(--primary-color);
+    font-size: var(--font-2xl);
+    text-align: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-2);
+  }
+  .hero-subtitle {
+    text-align: center;
+  }
+  .hero-accepting {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    font-size: var(--font-2xl);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-2);
+  }
+  h2 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--space-2);
+  }
+  h3 {
+    font-size: var(--font-lg);
+    margin-bottom: var(--space-1);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-image-container {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto var(--space-6);
+  }
+}
+
+
+/* Small screens: further stack and size adjustments */
 @media (max-width: 700px) {
   .hero-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 1rem;
-    margin-top: 0.1rem;
   }
-
   .hero-image-container {
     width: 120px;
     height: 120px;
     margin-bottom: 0.1rem;
+    max-width: 120px;
   }
-
   .hero-image {
     height: 120%;
   }
-
   .hero-content {
     align-items: center;
     text-align: center;
@@ -174,6 +239,7 @@
     width: 90px;
     height: 90px;
     margin-bottom: 0.1rem;
+    max-width: 90px;
   }
   .hero-title {
     font-size: var(--font-xl);
@@ -189,38 +255,34 @@
     padding: 0 0.1rem;
   }
   .hero-accepting {
-    font-size: 1.5rem; /* updated font size */
+    font-size: 1.5rem;
     padding: 0.25em 0.7em;
     margin-bottom: 0.7rem;
   }
 }
 
 /* Dark mode specific hero styles */
-body.dark-mode .hero-section {
-  background: transparent;
-}
-
 body.dark-mode .hero-title {
-  color: var(--text-color, #fff);
-  text-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
+  color: var(--text-color);
+  text-shadow: 0 0 10px var(--accent-color, #90caf9);
 }
 
 body.dark-mode .hero-subtitle {
-  color: var(--accent-color, #90caf9);
+  color: var(--accent-color);
 }
 
 body.dark-mode .about-me-content {
-  color: var(--text-color, #fff);
+  color: var(--text-color);
 }
 
 body.dark-mode .about-me-content p:last-child {
-  color: var(--accent-color, #90caf9);
+  color: var(--accent-color);
 }
 
 body.dark-mode .hero-accepting {
-  background: #217a4b;
-  color: #d6f5e3;
-  box-shadow: 0 1px 4px rgba(214,245,227,0.10);
+  background: var(--secondary-color);
+  color: var(--background-light);
+  box-shadow: 0 1px 4px var(--highlight-color);
 }
 
 .interests-section {
@@ -234,8 +296,8 @@ body.dark-mode .hero-accepting {
 }
 
 .interests-title {
-  font-weight: 700;
-  font-size: var(--font-xl);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-lg);
   color: var(--secondary-color, #217a4b);
   margin-bottom: 0.2rem;
   letter-spacing: 0.03em;

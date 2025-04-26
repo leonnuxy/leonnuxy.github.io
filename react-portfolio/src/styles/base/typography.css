@@ -1,3 +1,6 @@
+/* Only typography variables and base font styles. */
+/* Remove duplicate h1, h2, ... rules if already in base.css. */
+
 /* Typography System */
 
 :root {

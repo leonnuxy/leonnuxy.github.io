@@ -1,5 +1,7 @@
 /* Base styles import file */
 
+/* Only @import or @use statements. No selectors or variables. */
+
 @import './sizing.css';
 @import './colors.css';
 @import './typography.css';
