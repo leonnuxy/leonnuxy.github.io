@@ -52,3 +52,19 @@ img {
   max-width: 100%;
   display: block;
 }
+
+/* Add these focus styles */
+:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* Modern focus-visible selector (only shows focus for keyboard users) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}

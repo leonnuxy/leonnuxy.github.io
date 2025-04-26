@@ -11,25 +11,31 @@ const EducationAndCertifications = () => (
         <div className="education-grid">
           {/* Example Education Card - structure is fine */}
           <div className="education-card">
-            <span className="card-icon edu-icon">
-              {/* If using font awesome */}
-              <i className="fas fa-graduation-cap"></i>
-              {/* If using react-icons */}
-              {/* <FaGraduationCap /> */}
-            </span>
             <div className="education-details"> {/* First entry */}
               <p className="education-degree">BSc. Computer Science</p>
               <div className="education-header">
-                <h3>University of Calgary</h3>
+                <div className="institution-logo-wrapper header-logo">
+                  <img 
+                    src={`${import.meta.env.BASE_URL}logos/uofc.png`} 
+                    alt="University of Calgary" 
+                    className="institution-logo"
+                  />
+                </div>
                 <span className="education-period">2016 - 2022</span>
               </div>
             </div>
             {/* Separator */}
             <hr />
             <div className="education-details"> {/* Second entry */}
-              <p className="education-degree">Diploma, Information and Technology</p>
+              <p className="education-degree">Information and Technology</p>
               <div className="education-header">
-                <h3>Bow Valley College</h3>
+                <div className="institution-logo-wrapper header-logo">
+                  <img 
+                    src={`${import.meta.env.BASE_URL}logos/bvc.png`} 
+                    alt="Bow Valley College" 
+                    className="institution-logo"
+                  />
+                </div>
                 <span className="education-period">2015 - 2016</span>
               </div>
             </div>
@@ -43,16 +49,16 @@ const EducationAndCertifications = () => (
         <div className="certification-grid">
            {/* Example Certification Card - structure is fine */}
           <div className="certification-card">
-            <span className="card-icon cert-icon">
-               {/* If using font awesome */}
-              <i className="fas fa-certificate"></i>
-               {/* If using react-icons */}
-               {/* <FaCertificate /> */}
-            </span>
             <div className="certification-details"> {/* First entry */}
               <p className="certification-org">AWS Certified Solutions Architect</p>
               <div className="certification-header">
-                <h3>AWS</h3>
+                <div className="institution-logo-wrapper header-logo">
+                  <img 
+                    src={`${import.meta.env.BASE_URL}logos/aws.svg.png`} 
+                    alt="AWS" 
+                    className="institution-logo cert-logo"
+                  />
+                </div>
                 <span className="certification-period">2023</span>
               </div>
             </div>
@@ -61,7 +67,13 @@ const EducationAndCertifications = () => (
             <div className="certification-details"> {/* Second entry */}
               <p className="certification-org">Google Cloud Professional Developer</p>
               <div className="certification-header">
-                <h3>Google</h3>
+                <div className="institution-logo-wrapper header-logo">
+                  <img 
+                    src={`${import.meta.env.BASE_URL}logos/gcp.png`} 
+                    alt="Google Cloud Platform" 
+                    className="institution-logo cert-logo"
+                  />
+                </div>
                 <span className="certification-period">2022</span>
               </div>
             </div>

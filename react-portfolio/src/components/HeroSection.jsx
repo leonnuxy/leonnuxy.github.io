@@ -18,7 +18,7 @@ const HeroSection = () => {
           className="hero-image" 
         />
       </div>
-      <p className="hero-subtitle">Software/Cloud Developer & Machine Learning Enthusiast</p>
+      <h1 className="hero-title">Software/Cloud Developer & Machine Learning Enthusiast</h1>
       <div className="about-me-content">
         <p>
           Experienced software developer with a background in computer science and a proven track record of solving complex problems. Proficient in full-stack development, data analysis, and building scalable cloud solutions. Expertise spans the entire software development lifecycle, from analysis and design to testing and deployment, utilizing modern technologies and Agile methodologies to drive efficiency and enhance user experiences.
@@ -48,4 +48,5 @@ const HeroSection = () => {
   );
 };
 
+// Export separately instead of inline with definition
 export default HeroSection;

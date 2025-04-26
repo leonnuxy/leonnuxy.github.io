@@ -1,4 +1,4 @@
-/* edu-cert-section and edu-cert-flex */
+/* General styling for the section */
 .edu-cert-section {
   padding: 3rem 0 4rem 0;
   background: transparent;
@@ -8,7 +8,6 @@
 .edu-cert-flex {
   display: flex;
   gap: 5rem;
-  align-items: flex-start;
   justify-content: center;
 }
 
@@ -23,10 +22,10 @@
 
 .edu-cert-header {
   text-align: center;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: var(--font-xl, 2.2rem);
+  font-weight: var(--font-weight-bold, 700);
   color: var(--primary-color, #1a2233);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   margin-top: 0;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -40,7 +39,7 @@
   margin: 1.1rem auto 0.7rem auto;
   width: 100px;
   height: 2px;
-  background: linear-gradient(90deg, #b6d8f6 0%, #e3e8ff 100%);
+  background: linear-gradient(90deg, var(--primary-color-light, #b6d8f6) 0%, var(--secondary-color-light, #e3e8ff) 100%);
   opacity: 0.25;
   border-radius: 1px;
 }
@@ -54,37 +53,30 @@
   gap: 1.5rem;
 }
 
+/* Card design - standardized sizes with better adaptability */
 .education-card, .certification-card {
-  background: linear-gradient(135deg, #171899 0%, #0b101b 100%);
-  position: relative;
-  border-radius: 1.2rem;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.08);
+  background: var(--background-light, #ffffff);
+  border-radius: 1.5rem;
   padding: 1.5rem;
-  padding-top: 3.5rem;
   width: 100%;
   max-width: 380px;
   min-width: 250px;
-  min-height: auto;
-  height: auto;
+  min-height: 240px;
+  height: 100%;
+  box-shadow: 0 8px 16px var(--shadow-color, rgba(0, 0, 0, 0.1)), 0 1px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(5px); /* Subtle glass effect */
 }
 
-.education-card::before,
-.certification-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.1;
-  background-image:
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 20px),
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 12px);
-  z-index: 0;
+.education-card:hover, .certification-card:hover {
+  box-shadow: 0 12px 24px var(--shadow-color-hover, rgba(0, 0, 0, 0.2)), 0 2px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 .card-icon {
@@ -93,94 +85,147 @@
   right: 1.5rem;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 2px 10px rgba(59,201,246,0.1), 0 1px 4px rgba(0,0,0,0.08);
   font-size: 1.6rem;
-  color: #fff;
+  box-shadow: 0 2px 10px rgba(59,201,246,0.1), 0 1px 4px rgba(0,0,0,0.08);
+  color: var(--text-color-inverse, #fff);
   border: 1px solid rgba(255,255,255,0.2);
 }
 
 .edu-icon {
-  background: linear-gradient(135deg, #3bc9f6 60%, #1a2233 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary-color-light, #3bc9f6) 60%, var(--primary-color, #1a2233) 100%);
 }
 
 .cert-icon {
-  background: linear-gradient(135deg, #f6c93b 60%, #1a2233 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #f6c93b 60%, var(--primary-color, #1a2233) 100%);
 }
 
-.education-details:first-of-type {
-  margin-bottom: 0.8rem;
-}
-
-.education-details {
+/* Ensure content within cards has consistent spacing */
+.education-details, .certification-details {
   z-index: 1;
   width: 100%;
-}
-
-.education-header, .certification-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  flex: 1; /* Allow flexible growth */
+  min-height: 80px; /* Ensure minimum content height */
+}
+
+/* Text styles */
+.education-degree, .certification-org {
+  font-size: var(--font-md, 1.1rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--text-color, #222);
+  margin-bottom: 1rem;
+  z-index: 1;
+  text-align: left;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
   z-index: 1;
   width: 100%;
 }
 
-.education-header h3, .certification-header h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  margin: 0 0 0.3rem 0;
-  color: #ffffffa0;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.education-degree, .certification-org {
-  font-size: 1.2rem;
-  color: #f8fafc;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
   z-index: 1;
-  text-align: left;
+  width: 100%;
 }
 
 .education-period, .certification-period {
-  font-size: 0.9rem;
-  color: #b0b8d6;
+  font-size: var(--font-base, 0.95rem);
+  color: var(--text-secondary, #777);
   margin-bottom: 0;
   z-index: 1;
-}
-
-body:not(.dark-mode) .education-period,
-body:not(.dark-mode) .certification-period {
-  color: #5b6478;
 }
 
 hr {
   border: none;
-  border-top: 1px solid rgba(26, 24, 24, 0.508);
+  border-top: 1px solid var(--border-color, rgba(26, 24, 24, 0.15));
   margin: 1rem 0;
   width: 90%;
   z-index: 1;
   background: none;
 }
 
-.education-card:hover, .certification-card:hover {
-  background: linear-gradient(135deg, #1a1b70 0%, #0a0e16 100%);
-  box-shadow: 0 12px 40px rgba(59,201,246,0.15), 0 0 20px 3px rgba(59,201,246,0.25);
-  transform: translateY(-5px);
-  transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+/* Logo styling */
+.institution-logo-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  height: auto;
 }
 
+.institution-logo {
+  max-height: 30px;
+  max-width: 120px;
+  margin-right: 1rem;
+}
 
-/* Responsive adjustments */
+.certification-header .institution-logo.cert-logo {
+  max-width: 90px;
+}
+
+/* Remove the duplicate logo containers */
+.education-details > .institution-logo-wrapper:not(.header-logo),
+.certification-details > .institution-logo-wrapper:not(.header-logo) {
+  display: none;
+}
+
+/* Dark mode styles */
+body.dark-mode .edu-cert-section {
+  background: transparent;
+}
+
+body.dark-mode .education-card,
+body.dark-mode .certification-card {
+  background: var(--background-card, rgba(26, 34, 51, 0.85));
+  box-shadow: 0 8px 30px var(--shadow-color, rgba(0,0,0,0.25)), 
+              0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-color, rgba(59, 201, 246, 0.1));
+  border-radius: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 380px;
+  min-width: 250px;
+  min-height: 240px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .education-card:hover,
+body.dark-mode .certification-card:hover {
+  box-shadow: 0 12px 40px rgba(59,201,246,0.15), 
+              0 0 20px 3px rgba(59,201,246,0.25);
+  border-color: var(--neon-blue, rgba(59, 201, 246, 0.3));
+}
+
+body.dark-mode .card-icon {
+  box-shadow: 0 0 15px rgba(59,201,246,0.2);
+}
+
+body.dark-mode .institution-logo {
+  filter: brightness(1.2) contrast(0.95); /* Improve logo visibility in dark mode */
+}
+
+/* Improved responsive design */
 @media (max-width: 1100px) {
   .edu-cert-flex {
     flex-direction: column;
@@ -191,124 +236,39 @@ hr {
   }
 }
 
-@media (max-width: 900px) {
-  .education-grid, .certification-grid {
-    gap: 1.2rem;
+@media (max-width: 768px) {
+  .edu-cert-flex {
+    flex-direction: column;
   }
-  .education-card, .certification-card {
-    max-width: 100%;
-    min-width: 0;
-    height: auto;
-    min-height: auto;
-    padding: 1.2rem;
-    padding-top: 3.2rem;
+
+  .education-card,
+  .certification-card {
+    max-width: 90%;
+    min-height: 220px;
+    padding: 1.3rem;
+    border-radius: 1.5rem;
   }
+
+  /* Better icon positioning on tablets */
   .card-icon {
     width: 36px;
     height: 36px;
-    font-size: 1.3rem;
-    top: 1.2rem;
-    right: 1.2rem;
+    font-size: 1.4rem;
+    top: 1.3rem;
+    right: 1.3rem;
   }
-  .education-header h3, .certification-header h3 {
-    font-size: 0.9rem;
-  }
-  .education-degree, .certification-org {
-    font-size: 1.1rem;
-  }
-  .education-period, .certification-period {
-      font-size: 0.85rem;
-  }
-   hr {
-      margin: 0.8rem 0;
-   }
 }
 
-@media (max-width: 600px) {
-
-  .edu-cert-section {
-    justify-self: center;
-}
-  .edu-cert-flex {
-    flex-direction: column;
-    gap: 2rem;
-  }
+@media (max-width: 480px) {
   .edu-cert-header {
-    font-size: 1.5rem;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+    font-size: var(--font-md, 1.5rem);
   }
-  .education-grid, .certification-grid {
-       gap: 1rem;
+  
+  .education-card,
+  .certification-card {
+    padding: 1.2rem;
+    min-height: 180px;
+    border-radius: 1.2rem;
+    width: 95%;
   }
-  .education-card, .certification-card {
-    padding: 1rem;
-    padding-top: 2.8rem;
-    max-width: 100%;
-  }
-  .card-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 1.1rem;
-    top: 1rem;
-    right: 1rem;
-  }
-  .education-header h3, .certification-header h3 {
-    font-size: 0.85rem;
-  }
-  .education-degree, .certification-org {
-    font-size: 1rem;
-  }
-   .education-period, .certification-period {
-      font-size: 0.8rem;
-  }
-   hr {
-      margin: 0.6rem 0;
-   }
-}
-
-/* Light mode support - Keep and ensure colors are appropriate */
-body:not(.dark-mode) .education-card,
-body:not(.dark-mode) .certification-card {
-  background: linear-gradient(135deg, #e3e8ff 0%, #f8fafc 100%);
-  box-shadow: 0 8px 30px rgba(16, 36, 68, 0.08), 0 4px 12px rgba(0,0,0,0.05);
-}
-
-body:not(.dark-mode) .education-card::before,
-body:not(.dark-mode) .certification-card::before {
-  background-image:
-    repeating-linear-gradient(135deg, rgba(0,0,0,0.03) 0 2px, transparent 2px 20px),
-    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 12px);
-}
-
-body:not(.dark-mode) .education-header h3,
-body:not(.dark-mode) .certification-header h3 {
-  color: #1a2233;
-}
-
-body:not(.dark-mode) .education-degree,
-body:not(.dark-mode) .certification-org {
-  color: #1a2233;
-  opacity: 0.85;
-}
-
-body:not(.dark-mode) .education-period,
-body:not(.dark-mode) .certification-period {
-  color: #5b6478;
-}
-
-body:not(.dark-mode) .card-icon {
-  background: rgba(59,201,246,0.15);
-  color: #1a2233;
-  border: 1px solid rgba(59,201,246,0.3);
-}
-
-body:not(.dark-mode) .edu-icon {
-  background: linear-gradient(135deg, #b6d8f6 60%, #e3e8ff 100%);
-  color: #1a2233;
-}
-
-body:not(.dark-mode) .cert-icon {
-  background: linear-gradient(135deg, #ffe9b6 60%, #e3e8ff 100%);
-  color: #1a2233;
 }

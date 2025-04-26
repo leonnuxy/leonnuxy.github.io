@@ -1,0 +1,8 @@
+/* Base styles import file */
+
+@import './sizing.css';
+@import './colors.css';
+@import './typography.css';
+@import './base.css';
+
+/* This file should be imported in your main application entry point */

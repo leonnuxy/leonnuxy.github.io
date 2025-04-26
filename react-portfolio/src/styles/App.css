@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Add skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--background-light);
+  padding: 8px;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}

@@ -1,37 +1,118 @@
-/* variables.css */
+/* Base variables - consolidated with colors.css */
+
 :root {
-  --primary-color: #213547;
-  --secondary-color: #646cff;
-  --accent-color: #90caf9;
+  /* Light mode defaults (will be overridden in dark mode) */
+  
+  /* Background colors */
   --background-light: #ffffff;
   --background-mid: #f5f5f5;
-  --background-dark: #eaeaea;
-  --text-color: #213547;
-  --text-secondary: #555;
-  --card-bg: #fff;
-  --card-border: #e0e0e0;
-  --button-bg: #f9f9f9;
-  --button-color: #213547;
-  --button-border: #ccc;
-  --border-radius: 8px;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-family-heading: 'Libre Baskerville', 'Baskerville', 'Montserrat', 'Segoe UI', Arial, serif;
+  --background-dark: #1a1a1a;
+  --background-card: #ffffff;
+  
+  /* Text colors - dark for light mode to ensure contrast */
+  --text-color: #333333; /* Dark gray text for light mode */
+  --text-color-muted: rgba(51, 51, 51, 0.7); /* Semi-transparent dark text */
+  --text-secondary: #666666;
+  
+  /* Brand colors - dark enough to be visible on light bg */
+  --primary-color: #1a2233; /* Dark navy */
+  --secondary-color: #217a4b; /* Green with good contrast */
+  
+  /* Other colors */
+  --accent-color: #2980b9; /* Darker blue for better contrast */
+  --neon-blue: #0077cc; /* Darker blue for light mode */
+  
+  /* Effects and borders */
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  
+  /* Button styles */
+  --button-bg: #f5f5f5;
+  --button-color: #333333; /* Dark text for contrast on light buttons */
+  --button-border: #e0e0e0;
+  
+  /* Effects */
+  --neon-glow: 0 0 10px rgba(0, 119, 204, 0.5), 0 0 20px rgba(0, 119, 204, 0.3);
   --transition: all 0.3s ease;
 }
 
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background colors for dark mode */
+    --background-light: #050911;
+    --background-mid: #0a1022;
+    --background-dark: #000000;
+    --background-card: rgba(10, 16, 35, 0.85);
+    
+    /* Text colors - light for dark mode */
+    --text-color: #ffffff;
+    --text-color-muted: rgba(255, 255, 255, 0.6);
+    --text-secondary: #c0c8d8;
+    
+    /* Brand colors - light enough for dark mode */
+    --primary-color: #ffffff;
+    --secondary-color: #50e3c2;
+    
+    /* Other colors */
+    --accent-color: #90caf9;
+    --neon-blue: #00c3ff;
+    
+    /* Effects and borders */
+    --border-color: #2a3654;
+    --shadow-color: rgba(0, 0, 0, 0.65);
+    --highlight-color: rgba(255, 255, 255, 0.05);
+    
+    /* Button styles */
+    --button-bg: rgba(10, 16, 35, 0.85);
+    --button-color: #ffffff;
+    --button-border: #2a3654;
+    
+    /* Effects */
+    --neon-glow: 0 0 10px rgba(0, 195, 255, 0.5), 0 0 20px rgba(0, 195, 255, 0.3);
+  }
+}
+
+/* Class-based overrides for manual theme switching */
 body.dark-mode {
-  --primary-color: #fff;
-  --secondary-color: #646cff;
-  --accent-color: #00ccff;
+  /* Same as prefers-color-scheme: dark */
   --background-light: #050911;
   --background-mid: #0a1022;
-  --background-dark: #181c2a;
-  --text-color: #fff;
+  --background-dark: #000000;
+  --background-card: rgba(10, 16, 35, 0.85);
+  --text-color: #ffffff;
+  --text-color-muted: rgba(255, 255, 255, 0.6);
   --text-secondary: #c0c8d8;
-  --card-bg: #181c2a;
-  --card-border: #23263a;
-  --button-bg: #1a1a1a;
-  --button-color: #fff;
-  --button-border: #646cff;
+  --primary-color: #ffffff;
+  --secondary-color: #50e3c2;
+  --accent-color: #90caf9;
+  --neon-blue: #00c3ff;
+  --border-color: #2a3654;
+  --shadow-color: rgba(0, 0, 0, 0.65);
+  --highlight-color: rgba(255, 255, 255, 0.05);
+  --button-bg: rgba(10, 16, 35, 0.85);
+  --button-color: #ffffff;
+  --button-border: #2a3654;
+}
+
+body.light-mode {
+  /* Same as root defaults but explicit for clarity */
+  --background-light: #ffffff;
+  --background-mid: #f5f5f5;
+  --background-dark: #1a1a1a;
+  --background-card: #ffffff;
+  --text-color: #333333;
+  --text-color-muted: rgba(51, 51, 51, 0.7);
+  --text-secondary: #666666;
+  --primary-color: #1a2233;
+  --secondary-color: #217a4b;
+  --accent-color: #2980b9;
+  --neon-blue: #0077cc;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --button-bg: #f5f5f5;
+  --button-color: #333333;
+  --button-border: #e0e0e0;
 }

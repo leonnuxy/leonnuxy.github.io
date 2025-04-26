@@ -18,11 +18,12 @@ function App() {
 
   return (
     <>
+      <a href="#main" className="skip-to-content">Skip to content</a>
       <header className="main-header">
         <Header />
       </header>
       <div className="container">
-        <main className="main-content">
+        <main id="main" className="main-content">
           <HeroSection />
           <ExperienceSection />
           <Skills />

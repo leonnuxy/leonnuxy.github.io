@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 
 const experienceData = [
   {
@@ -202,11 +203,6 @@ const ExperienceSection = () => {
                 <div className="experience-points">
                   <ul
                     className="experience-description"
-                    style={{
-                      textAlign: "left",
-                      fontSize: "0.93rem",
-                      fontFamily: "'Inter', 'Segoe UI', Arial, sans-serif"
-                    }}
                   >
                     {points.slice(0, 4).map((point, i) => (
                       <li key={i}>{point}</li>
@@ -220,6 +216,10 @@ const ExperienceSection = () => {
       </div>
     </section>
   );
+};
+
+ExperienceSection.propTypes = {
+  // Add any props if you decide to make this component accept props
 };
 
 export default ExperienceSection;

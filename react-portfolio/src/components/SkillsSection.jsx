@@ -92,14 +92,14 @@ const SkillTag = ({ skill }) => {
     const tooltipHeight = 80; // adjusted estimate
     let left = e.clientX;
     let top = e.clientY - tooltipHeight - 10;
-    
+
     // Keep tooltip within viewport
     if (left + tooltipWidth > window.innerWidth - 10) {
       left = window.innerWidth - tooltipWidth - 10;
     }
     if (left < 10) left = 10;
     if (top < 10) top = e.clientY + 28;
-    
+
     setTooltipStyle({
       display: 'block',
       position: 'fixed',
@@ -145,9 +145,8 @@ const SkillsSection = () => (
       {/* Programming Languages */}
       <div className="skills-category">
         <span className="skills-category-icon languages">
-          {/* Languages Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M4 17h14M11 4v13M7 8l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M4 17h14M11 4v13M7 8l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
         <h3>Languages</h3>
@@ -157,13 +156,14 @@ const SkillsSection = () => (
           ))}
         </div>
       </div>
+
       {/* Frontend Development */}
       <div className="skills-category">
         <span className="skills-category-icon frontend">
           {/* Frontend Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="3" y="5" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
-            <path d="M8 17v2h6v-2" stroke="currentColor" strokeWidth="2"/>
+            <rect x="3" y="5" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="2" />
+            <path d="M8 17v2h6v-2" stroke="currentColor" strokeWidth="2" />
           </svg>
         </span>
         <h3>Frontend</h3>
@@ -173,48 +173,36 @@ const SkillsSection = () => (
           ))}
         </div>
       </div>
-      {/* Backend Development */}
+
+      {/* Backend & Database */}
       <div className="skills-category">
         <span className="skills-category-icon backend">
-          {/* Backend Icon */}
+          {/* Backend/Database Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <ellipse cx="11" cy="7" rx="8" ry="3" stroke="currentColor" strokeWidth="2"/>
-            <path d="M3 7v8c0 1.66 3.58 3 8 3s8-1.34 8-3V7" stroke="currentColor" strokeWidth="2"/>
-            <path d="M3 11c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" strokeWidth="2"/>
+            <ellipse cx="11" cy="7" rx="8" ry="3" stroke="currentColor" strokeWidth="2" />
+            <path d="M3 7v8c0 1.66 3.58 3 8 3s8-1.34 8-3V7" stroke="currentColor" strokeWidth="2" />
+            <path d="M3 11c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" strokeWidth="2" />
           </svg>
         </span>
         <h3>Backend</h3>
         <div className="skills-tag-grid">
-          {skills["Backend Development"].map(skill => (
+          {[
+            ...skills["Backend Development"],
+            ...skills["Database Management"]
+          ].map(skill => (
             <SkillTag skill={skill} key={skill.name} />
           ))}
         </div>
       </div>
-      {/* Database Management */}
-      <div className="skills-category">
-        <span className="skills-category-icon database">
-          {/* Database Icon */}
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <ellipse cx="11" cy="6" rx="7" ry="3" stroke="currentColor" strokeWidth="2"/>
-            <path d="M4 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6" stroke="currentColor" strokeWidth="2"/>
-            <path d="M4 12c0 1.66 3.13 3 7 3s7-1.34 7-3" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </span>
-        <h3>Database</h3>
-        <div className="skills-tag-grid">
-          {skills["Database Management"].map(skill => (
-            <SkillTag skill={skill} key={skill.name} />
-          ))}
-        </div>
-      </div>
+
       {/* Data Engineering & Analysis */}
       <div className="skills-category">
         <span className="skills-category-icon data">
           {/* Data Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="3" y="10" width="4" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
-            <rect x="9" y="5" width="4" height="12" rx="1" stroke="currentColor" strokeWidth="2"/>
-            <rect x="15" y="2" width="4" height="15" rx="1" stroke="currentColor" strokeWidth="2"/>
+            <rect x="3" y="10" width="4" height="7" rx="1" stroke="currentColor" strokeWidth="2" />
+            <rect x="9" y="5" width="4" height="12" rx="1" stroke="currentColor" strokeWidth="2" />
+            <rect x="15" y="2" width="4" height="15" rx="1" stroke="currentColor" strokeWidth="2" />
           </svg>
         </span>
         <h3>Data</h3>
@@ -224,12 +212,13 @@ const SkillsSection = () => (
           ))}
         </div>
       </div>
+
       {/* Cloud Technologies */}
       <div className="skills-category">
         <span className="skills-category-icon cloud">
           {/* Cloud Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M7 17h8a4 4 0 0 0 0-8 6 6 0 1 0-8 8z" stroke="currentColor" strokeWidth="2"/>
+            <path d="M7 17h8a4 4 0 0 0 0-8 6 6 0 1 0-8 8z" stroke="currentColor" strokeWidth="2" />
           </svg>
         </span>
         <h3>Cloud</h3>
@@ -239,13 +228,14 @@ const SkillsSection = () => (
           ))}
         </div>
       </div>
+
       {/* CI/CD & DevOps */}
       <div className="skills-category">
         <span className="skills-category-icon cicd">
           {/* CI/CD Icon */}
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="9" stroke="currentColor" strokeWidth="2"/>
-            <path d="M11 6v5l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <circle cx="11" cy="11" r="9" stroke="currentColor" strokeWidth="2" />
+            <path d="M11 6v5l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </span>
         <h3>CI/CD & DevOps</h3>
@@ -255,22 +245,7 @@ const SkillsSection = () => (
           ))}
         </div>
       </div>
-      {/* Testing */}
-      <div className="skills-category">
-        <span className="skills-category-icon testing">
-          {/* Testing Icon */}
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
-            <path d="M7 11l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </span>
-        <h3>Testing</h3>
-        <div className="skills-tag-grid">
-          {skills["Testing"].map(skill => (
-            <SkillTag skill={skill} key={skill.name} />
-          ))}
-        </div>
-      </div>
+      {/* Removed Testing section */}
     </div>
   </section>
 );

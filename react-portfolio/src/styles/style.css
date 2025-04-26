@@ -2,6 +2,10 @@
 @import './index.css';
 @import './base/variables.css';
 @import './base/base.css';
+@import './base/index.css';
+@import './base/typography.css';
+@import './base/sizing.css';
+@import './base/colors.css';
 @import './components/sections.css';
 @import './components/skills.css';
 @import './components/cards.css';
@@ -14,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* changed from flex-start to space-between */
-  padding: 1.5rem 2rem 1.5rem 2rem;
+  padding: var(--space-1) var(--space-1);
   background: transparent;
   position: relative;
   z-index: 10;
@@ -35,19 +39,18 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 2.2rem;
-  background: var(--background-light);
-  border-radius: 2rem;
+  gap: var(--space-5);
+  background: transparent;
+  border-radius: var(--radius-2xl);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 0.5rem 2rem;
+  padding: var(--space-1) var(--space-4);
   align-items: center;
-  /* Remove margin: 0 auto; as it doesn't work with absolute positioning */
   z-index: 100; /* Ensure it's above other elements */
 }
 
 .header-bar a {
   color: var(--primary-color);
-  font-size: 1.4rem;
+  font-size: var(--font-lg);
   transition: color 0.2s;
 }
 
@@ -239,4 +242,8 @@ body.dark-mode select {
     height: 2.3rem;
     font-size: 1rem;
   }
+}
+
+body.light-mode {
+  background: var(--background-light);  /* Changed from var(--background-light, #fff) to be consistent */
 }

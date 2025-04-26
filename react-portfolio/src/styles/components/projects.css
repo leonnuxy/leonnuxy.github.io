@@ -9,18 +9,13 @@
 
 .projects-stacked-header {
   text-align: center;
-  font-size: 2.2rem;
-  font-weight: 800;
+  font-size: var(--font-xl, 2.2rem);
+  font-weight: var(--font-weight-extrabold, 800);
   color: var(--primary-color, #1a2233);
   margin-bottom: 2.5rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   position: relative;
-}
-
-/* Dark mode header */
-.dark-mode .projects-stacked-header {
-  color: #f8fafc;
 }
 
 .projects-stacked-header::after {
@@ -29,14 +24,18 @@
   margin: 1.1rem auto 0.7rem auto;
   width: 100px;
   height: 2px;
-  background: linear-gradient(90deg, #b6d8f6 0%, #e3e8ff 100%);
+  background: linear-gradient(90deg, var(--primary-color-light, #b6d8f6) 0%, var(--secondary-color-light, #e3e8ff) 100%);
   opacity: 0.25;
   border-radius: 1px;
 }
 
-/* Dark mode gradient line */
-.dark-mode .projects-stacked-header::after {
-  background: linear-gradient(90deg, #3bc9f6 0%, #5f75ff 100%);
+/* Dark mode overrides */
+body.dark-mode .projects-stacked-header {
+  color: var(--text-color, #f8fafc);
+}
+
+body.dark-mode .projects-stacked-header::after {
+  background: linear-gradient(90deg, var(--neon-blue, #3bc9f6) 0%, #5f75ff 100%); /* Outlier: hardcoded gradient end color */
   opacity: 0.4;
 }
 
@@ -46,9 +45,9 @@
 .projects-stacked-cards {
   position: relative;
   width: 100%;
-  max-width: 420px; /* Increased to better show stacked cards */
+  max-width: 420px;
   margin: 0 auto;
-  height: 500px;
+  height: 550px;
   perspective: 1200px;
 }
 
@@ -65,70 +64,66 @@
   height: 100%;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  background: #fff;
+  box-shadow: 0 8px 30px var(--shadow-color, rgba(0,0,0,0.1));
+  background: var(--background-light, #fff);
   transition: all 0.5s cubic-bezier(.4,0,.2,1);
   opacity: 0;
   pointer-events: none;
   text-align: left;
   display: flex;
   flex-direction: column;
-  filter: blur(2px); /* Reduced blur for better visibility */
+  filter: blur(2px);
   transform-origin: center center;
 }
 
-/* Dark mode card */
-.dark-mode .project-stacked-card {
-  background: #1a2233;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
-
-/* Active card - front and center */
+/* Card states */
 .project-stacked-card.active {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0) translateX(0) scale(1) rotateZ(0deg);
-  box-shadow: 0 15px 45px rgba(0,0,0,0.18);
+  box-shadow: 0 15px 45px var(--shadow-color-hover, rgba(0,0,0,0.18));
   filter: blur(0);
-  z-index: 10; /* Highest z-index */
+  z-index: 10;
 }
 
-/* Dark mode active card */
-.dark-mode .project-stacked-card.active {
-  box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-}
-
-/* Previous card - behind and to the left */
 .project-stacked-card.prev {
   opacity: 0.7;
   transform: translateX(-25%) translateY(5%) scale(0.95) rotateZ(-3deg);
   filter: blur(1px);
-  pointer-events: none;
+  pointer-events: auto; /* Changed to enable interaction */
   z-index: 5;
 }
 
-/* Next card - behind and to the right */
 .project-stacked-card.next {
   opacity: 0.7;
   transform: translateX(25%) translateY(5%) scale(0.95) rotateZ(3deg);
   filter: blur(1px);
-  pointer-events: none;
+  pointer-events: auto; /* Changed to enable interaction */
   z-index: 5;
 }
 
-/* Hidden cards */
 .project-stacked-card.hidden {
   opacity: 0;
   transform: translateY(20%) scale(0.9);
   z-index: 1;
 }
 
-/* Add hover effect for prev/next cards to hint they're interactive */
+/* Hover effects for prev/next */
 .project-stacked-card.prev:hover,
 .project-stacked-card.next:hover {
   opacity: 0.85;
   filter: blur(0.5px);
   cursor: pointer;
+}
+
+/* Dark mode overrides */
+body.dark-mode .project-stacked-card {
+  background: var(--background-card, #1a2233);
+  box-shadow: 0 8px 30px var(--shadow-color, rgba(0,0,0,0.25));
+}
+
+body.dark-mode .project-stacked-card.active {
+  box-shadow: 0 15px 45px var(--shadow-color-hover, rgba(0,0,0,0.4));
 }
 
 /* ========================================
@@ -137,13 +132,10 @@
 .card-image-area {
   position: relative;
   width: 100%;
-  height: 65%;
+  height: 60%;
   background-size: cover;
   background-position: center;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  border-radius: 1.5rem;
   filter: brightness(0.8);
 }
 
@@ -152,7 +144,7 @@
    ======================================== */
 .image-overlay-header {
   position: absolute;
-  top: 1rem;
+  top: 17rem;
   left: 1.5rem;
   right: 1.5rem;
   display: flex;
@@ -167,24 +159,18 @@
 }
 
 .skill-pill {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.5);
+  color: #050000;
+  font-size: var(--font-xs, 0.8rem);
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   font-weight: 500;
   backdrop-filter: blur(5px);
 }
 
-/* Dark mode skill pill - slightly different background */
-.dark-mode .skill-pill {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
 .project-rating-overlay {
-  font-size: 0.9rem;
-  color: #fff;
+  font-size: var(--font-xs, 0.9rem);
+  color: #fff; /* Outlier: always white for contrast on image */
   font-weight: bold;
   background: rgba(0, 0, 0, 0.3);
   padding: 0.3rem 0.7rem;
@@ -195,8 +181,14 @@
   backdrop-filter: blur(5px);
 }
 
-/* Dark mode rating overlay */
-.dark-mode .project-rating-overlay {
+/* Dark mode overrides */
+body.dark-mode .skill-pill {
+  background: rgba(255, 255, 255);
+  box-shadow: 0 2px 8px var(--shadow-color, rgba(0,0,0,0.2));
+  backdrop-filter: none; /* Remove blur for dark mode */
+}
+
+body.dark-mode .project-rating-overlay {
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -206,46 +198,45 @@
 .card-content {
   flex-grow: 1;
   padding: 1.5rem;
-  background: #fff;
+  background: var(--background-light, #fff);
   border-bottom-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-/* Dark mode card content */
-.dark-mode .card-content {
-  background: #1a2233;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: var(--space-4, -1rem);
 }
 
 .card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a2233;
+  font-size: var(--font-lg, 1.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--primary-color, #1a2233);
   margin-top: auto;
   margin-bottom: 0.5rem;
   text-align: left;
   line-height: 1.3;
 }
 
-/* Dark mode card title */
-.dark-mode .card-title {
-  color: #f8fafc;
-}
-
 .card-description {
-  font-size: 0.85rem;
-  color: #1a2233;
+  font-size: var(--font-xs, 0.85rem);
+  color: var(--text-color, #1a2233);
   margin-top: 0.5rem;
   line-height: 1.5;
   flex-grow: 1;
 }
 
-/* Dark mode card description */
-.dark-mode .card-description {
-  color: #b0b8d6;
+/* Dark mode overrides */
+body.dark-mode .card-content {
+  background: var(--background-card, #1a2233);
+  border-top: 1px solid var(--highlight-color, rgba(255, 255, 255, 0.08));
+}
+
+body.dark-mode .card-title {
+  color: var(--text-color, #f8fafc);
+}
+
+body.dark-mode .card-description {
+  color: var(--text-secondary, #b0b8d6);
 }
 
 /* ========================================
@@ -259,20 +250,15 @@
 }
 
 .card-company {
-  font-size: 1.0rem;
-  font-weight: 500;
-  color: #1a2233d6;
+  font-size: var(--font-base, 1.0rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--text-color-muted, #1a2233d6);
   margin-top: 0;
 }
 
-/* Dark mode company name */
-.dark-mode .card-company {
-  color: #e3e8ffd6;
-}
-
 .explore-btn {
-  background: #000;
-  color: #fff;
+  background: var(--background-dark, #000); /* Using dark bg variable */
+  color: var(--text-color-inverse, #fff);
   border: none;
   border-radius: 30px;
   padding: 0.6rem 0.6rem 0.6rem 1rem;
@@ -281,27 +267,15 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px var(--shadow-color, rgba(0,0,0,0.1));
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-/* Dark mode explore button */
-.dark-mode .explore-btn {
-  background: #3bc9f6;
-  box-shadow: 0 4px 15px rgba(59, 201, 246, 0.2);
+  font-size: var(--font-base, 1rem);
+  font-weight: var(--font-weight-semibold, 600);
 }
 
 .explore-btn:hover {
-  background: #333;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-/* Dark mode explore button hover */
-.dark-mode .explore-btn:hover {
-  background: #4fd5ff;
-  box-shadow: 0 6px 20px rgba(59, 201, 246, 0.3);
+  background: #333; /* Outlier: specific hover color */
+  box-shadow: 0 6px 20px var(--shadow-color-hover, rgba(0,0,0,0.15));
 }
 
 .explore-btn span {
@@ -309,7 +283,7 @@
 }
 
 .explore-icon-circle {
-  background: #fff;
+  background: var(--background-light, #fff);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -318,20 +292,33 @@
   justify-content: center;
 }
 
-/* Dark mode icon circle */
-.dark-mode .explore-icon-circle {
-  background: rgba(255, 255, 255, 0.9);
-}
-
 .explore-arrow {
-  color: #000;
+  color: var(--background-dark, #000);
   width: 24px;
   height: 24px;
 }
 
-/* Dark mode arrow */
-.dark-mode .explore-arrow {
-  color: #1a2233;
+/* Dark mode overrides */
+body.dark-mode .card-company {
+  color: var(--text-color-muted, #e3e8ffd6);
+}
+
+body.dark-mode .explore-btn {
+  background: #00ddffd1;
+  box-shadow: 0 4px 15px rgba(59, 201, 246, 0.2); /* Outlier: specific glow color */
+}
+
+body.dark-mode .explore-btn:hover {
+  background: #4fd5ff; /* Outlier: specific hover color */
+  box-shadow: 0 6px 20px rgba(59, 201, 246, 0.3); /* Outlier: specific glow color */
+}
+
+body.dark-mode .explore-icon-circle {
+  background: var(--background-card, #1a2233);
+}
+
+body.dark-mode .explore-arrow {
+  color: var(--primary-color, #1a2233);
 }
 
 /* ========================================
@@ -345,26 +332,18 @@
   height: 48px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.9);
-  color: #1a2233;
+  background: rgba(255,255,255,0.9); /* Outlier: semi-transparent white */
+  color: var(--primary-color, #1a2233);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px var(--shadow-color, rgba(0,0,0,0.15));
   opacity: 0.9;
   outline: none;
   animation: pulse 2s infinite;
-}
-
-/* Dark mode navigation buttons */
-.dark-mode .nav-btn {
-  background: rgba(26, 34, 51, 0.9);
-  color: #f8fafc;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-  animation: darkPulse 2s infinite;
 }
 
 .nav-btn-left {
@@ -376,34 +355,22 @@
 }
 
 .nav-btn:hover, .nav-btn:focus {
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  background: var(--background-light, #fff);
+  box-shadow: 0 6px 18px var(--shadow-color-hover, rgba(0,0,0,0.18));
   transform: translateY(-50%) scale(1.1);
   opacity: 1;
 }
 
-/* Dark mode nav button hover */
-.dark-mode .nav-btn:hover, 
-.dark-mode .nav-btn:focus {
-  background: #1a2233;
-  box-shadow: 0 6px 18px rgba(59, 201, 246, 0.25);
-}
-
 .nav-btn:active {
   transform: translateY(-50%) scale(0.95);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  background: #f8f9fa;
-}
-
-/* Dark mode nav button active */
-.dark-mode .nav-btn:active {
-  background: #131923;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px var(--shadow-color, rgba(0,0,0,0.12));
+  background: var(--background-mid, #f8f9fa);
 }
 
 .nav-btn svg {
-  width: 24px;
-  height: 24px;
+  font-size: var(--font-3xl);
+  width: 32px;
+  height: 32px;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
@@ -424,15 +391,34 @@
   transform: scale(1.2) translateX(2px);
 }
 
+/* Animation keyframes */
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,204,255,0.4); }
+  0% { box-shadow: 0 0 0 0 rgba(0,204,255,0.4); } /* Outlier: specific glow color */
   70% { box-shadow: 0 0 0 10px rgba(0,204,255,0); }
   100% { box-shadow: 0 0 0 0 rgba(0,204,255,0); }
 }
 
-/* Dark mode pulse animation */
+/* Dark mode overrides */
+body.dark-mode .nav-btn {
+  background: rgba(26, 34, 51, 0.9); /* Outlier: semi-transparent dark background */
+  color: var(--text-color, #f8fafc);
+  box-shadow: 0 4px 14px var(--shadow-color, rgba(0,0,0,0.3));
+  animation: darkPulse 2s infinite;
+}
+
+body.dark-mode .nav-btn:hover, 
+body.dark-mode .nav-btn:focus {
+  background: var(--background-card, #1a2233);
+  box-shadow: 0 6px 18px rgba(59, 201, 246, 0.25); /* Outlier: specific glow color */
+}
+
+body.dark-mode .nav-btn:active {
+  background: #131923; /* Outlier: specific active color */
+  box-shadow: 0 2px 8px var(--shadow-color, rgba(0,0,0,0.2));
+}
+
 @keyframes darkPulse {
-  0% { box-shadow: 0 0 0 0 rgba(59, 201, 246, 0.4); }
+  0% { box-shadow: 0 0 0 0 rgba(59, 201, 246, 0.4); } /* Outlier: specific glow color */
   70% { box-shadow: 0 0 0 10px rgba(59, 201, 246, 0); }
   100% { box-shadow: 0 0 0 0 rgba(59, 201, 246, 0); }
 }
@@ -469,12 +455,12 @@
   }
 
   .card-company {
-    font-size: 1.1rem;
+    font-size: var(--font-base, 1.1rem);
   }
 
   .explore-btn {
     padding: 0.5rem 0.5rem 0.5rem 1rem;
-    font-size: 0.9rem;
+    font-size: var(--font-xs, 0.9rem);
   }
 
   .explore-icon-circle {

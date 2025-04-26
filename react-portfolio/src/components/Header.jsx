@@ -7,6 +7,7 @@ const Header = () => (
       <a href="https://www.linkedin.com/in/noelugwoke/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <i className="fab fa-linkedin"></i>
       </a>
+      {/* Add rel="noopener noreferrer" to all external links */}
       <a href="https://github.com/leonnuxy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <i className="fab fa-github"></i>
       </a>

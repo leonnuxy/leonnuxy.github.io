@@ -1,0 +1,57 @@
+/* Color System */
+
+:root {
+  /* Brand colors */
+  --primary-color: #1a2233;
+  --secondary-color: #217a4b;
+  --accent-color: #90caf9;
+  --neon-blue: #00c3ff;
+  
+  /* Background colors */
+  --background-light: #ffffff;
+  --background-mid: #f5f5f5;
+  --background-dark: #1a1a1a;
+  --background-card: #ffffff;
+  
+  /* Text colors */
+  --text-color: #333333;
+  --text-secondary: #666666;
+  
+  /* Border and shadow */
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  
+  /* Button styles */
+  --button-bg: #ffffff;
+  --button-color: #333333;
+  --button-border: #e0e0e0;
+  
+  /* Effects */
+  --neon-glow: 0 0 10px rgba(0, 195, 255, 0.5), 0 0 20px rgba(0, 195, 255, 0.3);
+  --transition: all 0.3s ease;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #90caf9;
+    --secondary-color: #50e3c2;
+    
+    --background-light: #121212;
+    --background-mid: #1e1e1e;
+    --background-dark: #000000;
+    --background-card: #1e1e1e;
+    
+    --text-color: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    
+    --border-color: #2a2a2a;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --highlight-color: rgba(255, 255, 255, 0.05);
+    
+    --button-bg: #1e1e1e;
+    --button-color: #f5f5f5;
+    --button-border: #2a2a2a;
+  }
+}

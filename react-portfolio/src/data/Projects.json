@@ -3,15 +3,15 @@
     "title": "Supply Chain Analytics Platform",
     "company": "Parkland Fuel Corp.",
     "skills": ["Power BI", "SQL", "APIs", "Excel"],
-    "description": "Built a Power BI dashboard integrating SQL, Excel, and APIs, reducing manual reporting efforts by 60% for logistics teams. Unified 5+ data sources into a single interface for real-time decision-making.",
+    "description": "Built a Power BI dashboard integrating SQL, Excel, and APIs, reducing manual reporting efforts by 60% for logistics teams.",
     "link": "#",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
   },
   {
     "title": "Vaccine Booking System",
     "company": "Alberta Health Services",
-    "skills": ["React", "TypeScript", "AWS", "DynamoDB", "Node.js"],
-    "description": "Developed a secure, scalable full-stack platform and backend, handling 500+ daily appointments. Leveraged AWS (Lambda, S3, DynamoDB) for serverless architecture, achieving 99.9% uptime. Implemented Jest unit tests and CI/CD pipelines, reducing post-launch bugs by 30%.",
+    "skills": ["React", "TypeScript", "AWS", "Node.js"],
+    "description": "Developed a secure, scalable full-stack platform and backend, handling 500+ daily appointments.",
     "link": "https://bookvaccine.alberta.ca/vaccine/s/booking",
     "image": "/ahs_project_image.png"
   },
@@ -19,7 +19,7 @@
     "title": "Gas Pipeline Monitoring",
     "company": "Spartan Controls",
     "skills": ["Python", "Django", "PostgreSQL", "JavaScript"],
-    "description": "Created a Python/Django tool for real-time pipeline diagnostics, reducing inspection time by 45%. Designed PostgreSQL schemas to store sensor data, improving query speeds by 25%.",
+    "description": "Created a Python/Django tool for real-time pipeline diagnostics, reducing inspection time by 45%.",
     "link": "#",
     "image": "/gas-pipeline-monitoring.jpg"
   },
@@ -27,7 +27,7 @@
     "title": "Customer Churn Prediction Model",
     "company": "Personal Project",
     "skills": ["Python", "TensorFlow", "Pandas", "NumPy"],
-    "description": "Trained a TensorFlow machine learning model with 92% accuracy using Python (Pandas/NumPy), enabling targeted customer retention strategies.",
+    "description": "Trained a TensorFlow machine learning model with 92% accuracy using Python, enabling targeted customer retention strategies.",
     "link": "#",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
   },
@@ -35,7 +35,7 @@
     "title": "AI Resume Optimizer",
     "company": "Personal Project",
     "skills": ["Python", "MySQL", "NLP", "Ollama", "Mistral"],
-    "description": "Designed a Python/MySQL application to analyze resumes against job descriptions, improving alignment for 100+ test users. Automated formatting/structure recommendations using NLP techniques.",
+    "description": "Designed a Python/MySQL application to analyze resumes against job descriptions, improving alignment for 100+ test users.",
     "link": "#",
     "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80"
   },
