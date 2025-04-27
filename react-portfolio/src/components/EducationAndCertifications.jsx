@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/components/educationAndCertifications.css';
-// Assuming you have font awesome for the icons, otherwise use react-icons
-// import { FaGraduationCap, FaCertificate } from 'react-icons/fa';
 
 const EducationAndCertifications = () => (
   <section className="edu-cert-section">
@@ -50,7 +48,7 @@ const EducationAndCertifications = () => (
            {/* Example Certification Card - structure is fine */}
           <div className="certification-card">
             <div className="certification-details"> {/* First entry */}
-              <p className="certification-org">AWS Certified Solutions Architect</p>
+              <p className="certification-org">AWS Certified Cloud Practioner</p>
               <div className="certification-header">
                 <div className="institution-logo-wrapper header-logo">
                   <img 
@@ -77,7 +75,7 @@ const EducationAndCertifications = () => (
                 <span className="certification-period">2022</span>
               </div>
             </div>
-             {/* Add more certification entries here */}
+            {/* Separator */}
           </div>
           {/* Add more certification cards here if needed */}
         </div>

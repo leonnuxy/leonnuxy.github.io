@@ -36,7 +36,7 @@
     "company": "Personal Project",
     "skills": ["Python", "MySQL", "NLP", "Ollama", "Mistral"],
     "description": "Designed a Python/MySQL application to analyze resumes against job descriptions, improving alignment for 100+ test users.",
-    "link": "#",
+    "link": "https://resumeoptimizerv1.streamlit.app/optimize",
     "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600&q=80"
   },
   {
