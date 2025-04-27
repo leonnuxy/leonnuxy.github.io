@@ -32,17 +32,20 @@ jobs:
         with:
           node-version: '20' # Specify your Node.js version
           cache: 'npm'
+          cache-dependency-path: react-portfolio/package-lock.json # Optional: Specify lock file location
       - name: Install dependencies
+        working-directory: ./react-portfolio # Change working directory
         run: npm install
       - name: Build
+        working-directory: ./react-portfolio # Change working directory
         run: npm run build # This uses the build script from package.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload the 'dist' directory (Vite's default build output)
-          path: './dist'
+          # Upload the 'dist' directory from the react-portfolio subdirectory
+          path: './react-portfolio/dist'
 
   # Deployment job
   deploy:
