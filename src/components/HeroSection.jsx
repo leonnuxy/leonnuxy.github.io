@@ -5,7 +5,8 @@ const interests = [
   "Soccer",
   "Chess",
   "Gaming & Development",
-  "Health & Fitness"
+  "Health & Fitness",
+  ""
 ];
 
 const HeroSection = () => {
