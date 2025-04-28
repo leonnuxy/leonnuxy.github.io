@@ -186,7 +186,6 @@ body.dark-mode select {
   .main-header {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.1rem 0.1rem 0.1rem 0.1rem;
   }
   .header-title {
     font-size: 1.3rem;
@@ -197,7 +196,7 @@ body.dark-mode select {
   .header-bar {
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    right: -0.5rem;
     left: auto;
     bottom: auto;
     width: auto;
@@ -206,12 +205,11 @@ body.dark-mode select {
     justify-content: flex-start;
     align-items: center;
     gap: 1.1rem;
-    padding: 1rem 0.7rem;
-    border-radius: 1.2rem;
-    background: var(--background-light, #fff);
+    padding: 0.7rem 0.7rem;
+    border-radius: 1.7rem;
+    background: transparent;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
     z-index: 200;
-    transform: none;
   }
   .header-bar a {
     font-size: 1.25rem;
@@ -239,11 +237,12 @@ body.dark-mode select {
 @media (max-width: 700px) {
   .darkmode-toggle {
     left: auto;
-    right: 2rem;
-    bottom: 3rem;
+    right: 1.5rem;
+    bottom: 6rem;
     width: 3.3rem;
     height: 3.5rem;
     font-size: 1.5rem;
+    background: transparent;
   }
 }
 

@@ -252,7 +252,7 @@ body.dark-mode .card-description {
 .card-company {
   font-size: var(--font-base, 1.0rem);
   font-weight: var(--font-weight-medium, 500);
-  color: #000000a3;
+  color: var(--secondary-color, #3bc9f6);
   margin-top: 0;
 }
 
@@ -300,7 +300,7 @@ body.dark-mode .card-description {
 
 /* Dark mode overrides */
 body.dark-mode .card-company {
-  color: var(--text-color-muted, #e3e8ffd6);
+  color: var(--neon-blue, #3bc9f6);
 }
 
 body.dark-mode .explore-btn {

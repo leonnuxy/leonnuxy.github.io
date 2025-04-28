@@ -12,13 +12,7 @@ const EducationAndCertifications = () => (
             <div className="education-details"> {/* First entry */}
               <p className="education-degree">BSc. Computer Science</p>
               <div className="education-header">
-                <div className="institution-logo-wrapper header-logo">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}logos/uofc.png`} 
-                    alt="University of Calgary" 
-                    className="institution-logo"
-                  />
-                </div>
+                <span className="institution-name">University of Calgary</span>
                 <span className="education-period">2016 - 2022</span>
               </div>
             </div>
@@ -27,13 +21,7 @@ const EducationAndCertifications = () => (
             <div className="education-details"> {/* Second entry */}
               <p className="education-degree">Information and Technology</p>
               <div className="education-header">
-                <div className="institution-logo-wrapper header-logo">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}logos/bvc.png`} 
-                    alt="Bow Valley College" 
-                    className="institution-logo"
-                  />
-                </div>
+                <span className="institution-name">Bow Valley College</span>
                 <span className="education-period">2015 - 2016</span>
               </div>
             </div>
@@ -50,13 +38,7 @@ const EducationAndCertifications = () => (
             <div className="certification-details"> {/* First entry */}
               <p className="certification-org">AWS Certified Cloud Practioner</p>
               <div className="certification-header">
-                <div className="institution-logo-wrapper header-logo">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}logos/aws.svg.png`} 
-                    alt="AWS" 
-                    className="institution-logo cert-logo"
-                  />
-                </div>
+                <span className="institution-name">Amazon Web Services</span>
                 <span className="certification-period">2023</span>
               </div>
             </div>
@@ -65,13 +47,7 @@ const EducationAndCertifications = () => (
             <div className="certification-details"> {/* Second entry */}
               <p className="certification-org">Google Cloud Professional Developer</p>
               <div className="certification-header">
-                <div className="institution-logo-wrapper header-logo">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}logos/gcp.png`} 
-                    alt="Google Cloud Platform" 
-                    className="institution-logo cert-logo"
-                  />
-                </div>
+                <span className="institution-name">Google Cloud Platform</span>
                 <span className="certification-period">2022</span>
               </div>
             </div>

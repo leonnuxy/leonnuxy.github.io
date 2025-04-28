@@ -14,6 +14,7 @@
   --breakpoint-xxl: 1400px;
   
   /* Container widths at different breakpoints */
+  --container-s: 480px;
   --container-sm: 540px;
   --container-md: 720px;
   --container-lg: 960px;
@@ -32,6 +33,12 @@
 }
 
 /* Container breakpoints */
+@media (max-width: 480px) {
+  .container {
+    max-width: var(--container-s);
+  }
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: var(--container-sm);
