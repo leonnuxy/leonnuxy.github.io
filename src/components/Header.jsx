@@ -11,7 +11,7 @@ const Header = () => (
       <a href="https://github.com/leonnuxy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <i className="fab fa-github"></i>
       </a>
-      <a href="/blog" aria-label="Blog">
+      <a href="https://leonnuxy.github.io/blog/" aria-label="Blog">
         <i className="fas fa-blog"></i>
       </a>
       <a href="#projects" aria-label="Projects">
