@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "leonnuxy.github.io"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/node_modules": true,
+			"**/.vscode": false,
+			"**/blog-project/**": true,
+			"**/bookstore/**": true,
+			"**/mental-health-chatbot/**": true,
+			"**/mentalbud/**": true,
+			"**/calculator-project/**": true,
+			"**/mental-health-assistant-landing-page/**": true,
+			"**/ai-chatbot/**": true
+		}
+	}
+}

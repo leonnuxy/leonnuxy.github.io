@@ -1,3 +1,8 @@
+#!/bin/bash
+
+DEST_DIR="/Users/noel/Library/CloudStorage/OneDrive-Personal/Projects/Git/leonnuxy.github.io"
+
+cat > "$DEST_DIR/.gitignore" << EOL
 # Dependencies
 /node_modules
 /.pnp
@@ -33,3 +38,6 @@ yarn-error.log*
 # System files
 .DS_Store
 Thumbs.db
+EOL
+
+echo ".gitignore file created at $DEST_DIR"
