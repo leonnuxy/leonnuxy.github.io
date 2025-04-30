@@ -26,10 +26,10 @@ This is a professional portfolio website built with React and Vite, showcasing m
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/leonnuxy/leonnuxy.github.io.git
 
 # Navigate to the project directory
-cd react-portfolio
+cd leonnuxy.github.io
 
 # Install dependencies
 npm install
