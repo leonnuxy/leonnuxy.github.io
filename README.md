@@ -1,27 +1,53 @@
-# react-portfolio
+# Portfolio
 
 This is my personal portfolio website hosted on GitHub Pages. You can visit it at [https://leonnuxy.github.io](https://leonnuxy.github.io).
 
-## About
+# Personal Portfolio
 
-This portfolio showcases my projects, skills, and experience as a developer.
+This is a professional portfolio website built with React and Vite, showcasing my projects and skills.
+
+## Features
+
+- Modern, responsive design
+- Project showcase
+- Skills and experience sections
+- Contact information
 
 ## Technologies Used
 
-- HTML/CSS
+- React
+- Vite
+- CSS
 - JavaScript
-- [Other technologies you've used]
 
-## Setup
+## Getting Started
 
-To run this project locally:
+### Installation
 
+```bash
+# Clone the repository
+git clone [your-repo-url]
+
+# Navigate to the project directory
+cd react-portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
-git clone https://github.com/leonnuxy/leonnuxy.github.io.git
-cd leonnuxy.github.io
-[Your setup instructions]
+
+## Building for Production
+
+```bash
+npm run build
 ```
 
-## License
+## Deployment
 
-[Your license information]
+This site can be easily deployed to GitHub Pages or any static site hosting service.
+
+```bash
+npm run deploy
+```
