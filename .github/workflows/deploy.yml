@@ -4,24 +4,17 @@ on:
   push:
     branches: [main]
 
-# Modified permissions to include write access to contents
 permissions:
   contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT_TOKEN }}  # Use PAT for checkout
         
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -34,21 +27,9 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './dist'
-          
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+          folder: dist
+          token: ${{ secrets.PAT_TOKEN }}
+          branch: gh-pages
