@@ -5,7 +5,7 @@
     "skills": ["React", "JavaScript", "TypeScript", "HTML", "CSS", "Node.js"],
     "description": "A comprehensive collection of frontend and fullstack projects showcasing modern web development skills and interactive user interfaces.",
     "link": "/ui-projects/",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+    "image": "/ui-projects.png"
   },
   {
     "title": "Supply Chain Analytics Platform",
