@@ -3,63 +3,63 @@ import React, { useRef, useEffect, useCallback } from 'react';
 const experienceData = [
   {
     id: 1,
-    title: "Software Developer",
-    company: "Alberta Health Services",
-    location: "Calgary, AB",
-    period: "2022 - Present",
-    logo: "logos/ahs_logo.png",
+    title: "Application/Systems Analyst",
+    company: "APEGA",
+    location: "Edmonton, AB",
+    period: "Dec 2022 – Present",
+    logo: "logos/apega_logo.svg.png",
     description: [
-      "Developed and maintained healthcare applications using Java Spring Boot and React",
-      "Built RESTful APIs for patient data management and clinical workflows",
-      "Implemented automated testing strategies reducing bug reports by 40%",
-      "Collaborated with healthcare professionals to gather requirements and improve user experience"
+      "Architected and delivered scalable API-driven integrations, automating regulatory workflows and reducing manual application processing.",
+      "Reengineered data pipelines to increase throughput by 30%, ensuring high data integrity for compliance audits.",
+      "Led cross-functional Agile teams, translating business requirements into robust technical solutions.",
+      "Automated compliance reporting, reducing audit preparation time by 25%."
     ],
-    tools: ["Java", "Spring Boot", "React", "PostgreSQL", "AWS", "Docker", "Git"]
+    tools: ["Python", "REST APIs", "Azure", "SQL Server"]
   },
   {
     id: 2,
-    title: "Cloud Solutions Developer",
-    company: "Parkland Corporation",
-    location: "Calgary, AB", 
-    period: "2021 - 2022",
-    logo: "logos/parkland_logo.png",
+    title: "Software/DevOps Engineer",
+    company: "Spartan Controls",
+    location: "Calgary, AB",
+    period: "Jul 2021 – Nov 2022",
+    logo: "logos/spartan_logo.png",
     description: [
-      "Designed and implemented cloud-native solutions on AWS for fuel retail operations",
-      "Built data pipelines processing 1M+ transactions daily using Python and Apache Spark",
-      "Migrated legacy systems to containerized microservices architecture",
-      "Reduced infrastructure costs by 30% through optimized resource allocation"
+      "Developed containerized web apps for industrial monitoring, cutting manual data entry by 90%.",
+      "Implemented Kubernetes-based deployments and Terraform infrastructure, reducing provisioning time by 40%.",
+      "Established CI/CD pipelines with Jenkins and GitHub Actions, enforcing automated testing and secure rollouts.",
+      "Integrated monitoring solutions, improving system uptime and alerting accuracy."
     ],
-    tools: ["Python", "AWS", "Docker", "Kubernetes", "Terraform", "Apache Spark", "MongoDB"]
+    tools: ["Docker", "Kubernetes", "Terraform", "Jenkins"]
   },
   {
     id: 3,
-    title: "Full Stack Developer",
-    company: "Spartan Controls",
+    title: "Software Developer / Data Analyst",
+    company: "Parkland Fuel Corporation",
     location: "Calgary, AB",
-    period: "2020 - 2021", 
-    logo: "logos/spartan_logo.png",
+    period: "May 2020 – Jan 2021",
+    logo: "logos/parkland_logo.png",
     description: [
-      "Developed industrial automation web applications using Node.js and React",
-      "Created real-time monitoring dashboards for oil & gas pipeline systems",
-      "Integrated SCADA systems with modern web technologies",
-      "Improved system reliability and reduced downtime by 25%"
+      "Built interactive dashboards with React and Angular, driving a 30% increase in stakeholder adoption.",
+      "Optimized backend APIs for real-time reporting, reducing latency by 20% and improving system reliability.",
+      "Collaborated with analysts to streamline reporting workflows, enabling data-driven decision making.",
+      "Automated ETL processes, improving data accuracy and delivery speed."
     ],
-    tools: ["Node.js", "React", "TypeScript", "SQL Server", "Azure", "C#", "Git"]
+    tools: ["React", "Angular", "Node.js", "SQL Server"]
   },
   {
     id: 4,
-    title: "Software Engineering Intern",
-    company: "Bow Valley College",
+    title: "Web Applications Developer",
+    company: "Alberta Health Services",
     location: "Calgary, AB",
-    period: "2019 - 2020",
-    logo: "logos/bvc.png", 
+    period: "2019",
+    logo: "logos/ahs_logo.png",
     description: [
-      "Assisted in developing student information system features",
-      "Worked on database optimization and performance improvements", 
-      "Participated in Agile development processes and code reviews",
-      "Gained experience with enterprise software development practices"
+      "Created Django applications for field-team device tracking, automating data collection and report generation.",
+      "Enhanced usability and reduced manual reporting time by 50% through intuitive UI and backend optimizations.",
+      "Developed RESTful APIs for seamless integration with internal systems.",
+      "Implemented user authentication and access controls, improving data security."
     ],
-    tools: ["C#", ".NET", "SQL Server", "JavaScript", "HTML", "CSS"]
+    tools: ["Django", "Python", "PostgreSQL", "JavaScript"]
   }
 ];
 
